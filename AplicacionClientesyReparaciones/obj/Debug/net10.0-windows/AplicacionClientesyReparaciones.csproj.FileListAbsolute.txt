@@ -1,0 +1,6 @@
+C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\obj\Debug\net10.0-windows\Views\PaginaPrincipal.baml
+C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\obj\Debug\net10.0-windows\MainWindow.g.cs
+C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\obj\Debug\net10.0-windows\Views\PaginaPrincipal.g.cs
+C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\obj\Debug\net10.0-windows\App.g.cs
+C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\obj\Debug\net10.0-windows\AplicacionClientesyReparaciones_MarkupCompile.cache
+C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\obj\Debug\net10.0-windows\AplicacionClientesyReparaciones_MarkupCompile.lref
