@@ -8,12 +8,11 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         
-
         <Border Grid.Row="0" Background="AliceBlue">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0">
-                <Button Content="VerClientes" Margin="0,0,10,0" Background="Black" Foreground="White"/>
-                <Button Content="VerReparaciones" Margin="0,0,10,0" Background="Black" Foreground="White"/>
-                <Button Content="CrearReparaciones" Background="Black" Foreground="White"/>
+                <Button Content="VerClientes" Margin="0,0,10,0" Background="Black" Foreground="White" Click="VerClientes"/>
+                <Button Content="VerReparaciones" Margin="0,0,10,0" Background="Black" Foreground="White" Click="VerReparaciones"/>
+                <Button Content="CrearReparaciones" Background="Black" Foreground="White" Click="CrearReparaciones"/>
             </StackPanel>
         </Border>
 
