@@ -113,7 +113,7 @@
               "RelativeDocumentMoniker": "AplicacionClientesyReparaciones\\Views\\PaginaPrincipal.xaml.cs",
               "ToolTip": "C:\\Users\\Pc\\Desktop\\Practicas\\AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones\\Views\\PaginaPrincipal.xaml.cs",
               "RelativeToolTip": "AplicacionClientesyReparaciones\\Views\\PaginaPrincipal.xaml.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAQwBQAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAQwBUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-06T12:22:30.703Z",
               "EditorCaption": ""
@@ -152,7 +152,8 @@
               "ToolTip": "C:\\Users\\Pc\\Desktop\\Practicas\\AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones\\Views\\AgregarCliente.xaml",
               "RelativeToolTip": "AplicacionClientesyReparaciones\\Views\\AgregarCliente.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-03-09T09:47:36.542Z"
+              "WhenOpened": "2026-03-09T09:47:36.542Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -163,7 +164,8 @@
               "ToolTip": "C:\\Users\\Pc\\Desktop\\Practicas\\AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones\\Views\\VerUsuarios.xaml",
               "RelativeToolTip": "AplicacionClientesyReparaciones\\Views\\VerUsuarios.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-03-06T11:31:52.714Z"
+              "WhenOpened": "2026-03-06T11:31:52.714Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -175,7 +177,8 @@
               "RelativeToolTip": "AplicacionClientesyReparaciones\\Views\\AgregarCliente.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-09T09:33:52.533Z"
+              "WhenOpened": "2026-03-09T09:33:52.533Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -187,7 +190,8 @@
               "RelativeToolTip": "AplicacionClientesyReparaciones\\Views\\VerUsuarios.xaml.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAuwA8AAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T11:23:57.716Z"
+              "WhenOpened": "2026-03-06T11:23:57.716Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -197,7 +201,6 @@
               "RelativeDocumentMoniker": "AplicacionClientesyReparaciones\\Views\\AgregarCliente.xaml",
               "ToolTip": "C:\\Users\\Pc\\Desktop\\Practicas\\AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones\\Views\\AgregarCliente.xaml",
               "RelativeToolTip": "AplicacionClientesyReparaciones\\Views\\AgregarCliente.xaml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2026-03-09T09:45:02.292Z"
             },
@@ -221,7 +224,8 @@
               "ToolTip": "C:\\Users\\Pc\\Desktop\\Practicas\\AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones\\MainWindow.xaml",
               "RelativeToolTip": "AplicacionClientesyReparaciones\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-03-06T09:48:35.682Z"
+              "WhenOpened": "2026-03-06T09:48:35.682Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -233,7 +237,8 @@
               "RelativeToolTip": "AplicacionClientesyReparaciones\\MainWindow.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T09:48:17.654Z"
+              "WhenOpened": "2026-03-06T09:48:17.654Z",
+              "EditorCaption": ""
             }
           ]
         }
