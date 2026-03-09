@@ -1,0 +1,22 @@
+﻿<Window x:Class="AplicacionClientesyReparaciones.Views.PaginaPrincipal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="PaginaPrincipal" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <Border Grid.Row="0" Background="AliceBlue">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0">
+                <Button Content="VerClientes" Margin="0,0,10,0" Background="Black" Foreground="White" Click="VerClientes"/>
+                <Button Content="VerReparaciones" Margin="0,0,10,0" Background="Black" Foreground="White" Click="VerReparaciones"/>
+                <Button Content="CrearReparaciones" Background="Black" Foreground="White" Click="CrearReparaciones"/>
+            </StackPanel>
+        </Border>
+
+        <Grid Grid.Row="1" />
+        
+    </Grid>
+</Window>

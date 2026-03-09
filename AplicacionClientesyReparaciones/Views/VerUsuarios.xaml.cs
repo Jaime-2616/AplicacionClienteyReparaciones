@@ -1,7 +1,8 @@
-﻿using System.Windows;
+﻿using System.Windows.Controls;
+
 namespace AplicacionClientesyReparaciones.Views
 {
-    public partial class VerUsuarios : Window
+	public partial class VerUsuarios : UserControl
     {
         public VerUsuarios()
         {

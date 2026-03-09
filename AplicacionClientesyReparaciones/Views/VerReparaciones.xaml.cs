@@ -1,8 +1,8 @@
-﻿using System.Windows;
+﻿using System.Windows.Controls;
 
 namespace AplicacionClientesyReparaciones.Views
 {
-    public partial class  VerReparaciones : Window
+	public partial class VerReparaciones : UserControl
     {
         public VerReparaciones()
         {

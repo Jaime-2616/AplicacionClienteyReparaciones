@@ -1,8 +1,7 @@
-<Window x:Class="AplicacionClientesyReparaciones.Views.VerReparaciones"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="VerReparaciones" Height="450" Width="800">
-    <Grid>
+<UserControl x:Class="AplicacionClientesyReparaciones.Views.VerReparaciones"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<Grid>
 
-    </Grid>
-</Window>
+	</Grid>
+</UserControl>
