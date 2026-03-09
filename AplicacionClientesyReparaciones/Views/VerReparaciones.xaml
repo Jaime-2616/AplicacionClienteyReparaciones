@@ -1,7 +1,34 @@
 <UserControl x:Class="AplicacionClientesyReparaciones.Views.VerReparaciones"
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-	<Grid>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-	</Grid>
+        <Grid Grid.Row="0" Margin="0,0,0,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Listado de reparaciones" FontSize="18" FontWeight="Bold" VerticalAlignment="Center" />
+            <Button Grid.Column="1"
+				Content="Crear Reparacion"
+				Width="120"
+				Height="30"
+				HorizontalAlignment="Right"
+                Click=" NuevaReparacion_Click"/>
+        </Grid>
+        <DataGrid Grid.Row="1"
+			  AutoGenerateColumns="False"
+			  IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="60" />
+                <DataGridTextColumn Header="NombreCliente" Binding="{Binding NombreCliente}" Width="*" />
+                <DataGridTextColumn Header="Descripcion" Binding="{Binding Descripcion}" Width="*" />
+                <DataGridTextColumn Header="Estado" Binding="{Binding Estado}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
 </UserControl>
