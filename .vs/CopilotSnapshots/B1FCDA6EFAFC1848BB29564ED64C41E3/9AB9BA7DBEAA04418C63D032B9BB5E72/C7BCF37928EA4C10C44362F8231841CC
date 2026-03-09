@@ -1,0 +1,20 @@
+﻿using System.Windows;
+using System.Windows.Controls;
+
+namespace AplicacionClientesyReparaciones.Views
+{
+	public partial class VerUsuarios : UserControl
+    {
+        public VerUsuarios()
+        {
+            InitializeComponent();
+        }
+
+		private void NuevoCliente_Click(object sender, RoutedEventArgs e)
+		{
+			// Abre la ventana para agregar un nuevo cliente.
+			var ventana = new AgregarCliente();
+			ventana.ShowDialog();
+		}
+    }
+}

@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Windows.Controls;
+
+namespace AplicacionClientesyReparaciones.Views
+{
+	public partial class AgregarCliente : UserControl
+	{
+		public AgregarCliente()
+		{
+			InitializeComponent();
+		}
+    }
+}

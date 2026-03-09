@@ -1,5 +1,3 @@
-C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\bin\Debug\net10.0-windows\AplicacionClientesyReparaciones.exe
-C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\bin\Debug\net10.0-windows\AplicacionClientesyReparaciones.dll
 C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\obj\Debug\net10.0-windows\Views\CrearReparacion.baml
 C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\obj\Debug\net10.0-windows\Views\PaginaPrincipal.baml
 C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\obj\Debug\net10.0-windows\Views\VerReparaciones.baml
@@ -12,6 +10,11 @@ C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientes
 C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\obj\Debug\net10.0-windows\App.g.cs
 C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\obj\Debug\net10.0-windows\AplicacionClientesyReparaciones_MarkupCompile.cache
 C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\obj\Debug\net10.0-windows\AplicacionClientesyReparaciones_MarkupCompile.lref
+C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\bin\Debug\net10.0-windows\AplicacionClientesyReparaciones.exe
+C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\bin\Debug\net10.0-windows\AplicacionClientesyReparaciones.deps.json
+C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\bin\Debug\net10.0-windows\AplicacionClientesyReparaciones.runtimeconfig.json
+C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\bin\Debug\net10.0-windows\AplicacionClientesyReparaciones.dll
+C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\bin\Debug\net10.0-windows\AplicacionClientesyReparaciones.pdb
 C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\obj\Debug\net10.0-windows\MainWindow.baml
 C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\obj\Debug\net10.0-windows\AplicacionClientesyReparaciones.g.resources
 C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\obj\Debug\net10.0-windows\AplicacionClientesyReparaciones.GeneratedMSBuildEditorConfig.editorconfig
@@ -22,8 +25,7 @@ C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientes
 C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\obj\Debug\net10.0-windows\AplicacionClientesyReparaciones.dll
 C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\obj\Debug\net10.0-windows\refint\AplicacionClientesyReparaciones.dll
 C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\obj\Debug\net10.0-windows\AplicacionClientesyReparaciones.pdb
-C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\bin\Debug\net10.0-windows\AplicacionClientesyReparaciones.deps.json
-C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\bin\Debug\net10.0-windows\AplicacionClientesyReparaciones.runtimeconfig.json
-C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\bin\Debug\net10.0-windows\AplicacionClientesyReparaciones.pdb
 C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\obj\Debug\net10.0-windows\AplicacionClientesyReparaciones.genruntimeconfig.cache
 C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\obj\Debug\net10.0-windows\ref\AplicacionClientesyReparaciones.dll
+C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\obj\Debug\net10.0-windows\Views\AgregarCliente.baml
+C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\obj\Debug\net10.0-windows\Views\AgregarCliente.g.cs

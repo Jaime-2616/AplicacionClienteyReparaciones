@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace AplicacionClientesyReparaciones.Views
+{
+    public partial class AgregarCliente : Window
+    {
+        public AgregarCliente()
+        {
+            InitializeComponent();
+        }
+    }
+}
