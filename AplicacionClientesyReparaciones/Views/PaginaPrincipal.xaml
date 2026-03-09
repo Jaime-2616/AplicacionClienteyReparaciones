@@ -11,9 +11,8 @@
 		<Border Grid.Row="0" Background="AliceBlue">
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0">
 				<Button Content="VerClientes" Margin="0,0,10,0" Background="Black" Foreground="White" Click="VerClientes"/>
-				<Button Content="VerReparaciones" Margin="0,0,10,0" Background="Black" Foreground="White" Click="VerReparaciones"/>
-				<Button Content="CrearReparaciones" Background="Black" Foreground="White" Click="CrearReparaciones"/>
-			</StackPanel>
+                <Button Content="VerReparaciones" Margin="0,0,10,0" Background="Black" Foreground="White" Click="VerReparaciones"/>
+            </StackPanel>
 		</Border>
 
 		<Border Grid.Row="1" Margin="10" BorderBrush="LightGray" BorderThickness="1">

@@ -16,7 +16,8 @@ namespace AplicacionClientesyReparaciones.Views
             {
                 Title = "Crear reparación",
                 Content = contenido,
-                SizeToContent = System.Windows.SizeToContent.WidthAndHeight,
+				Width = 500,
+				Height = 350,
                 WindowStartupLocation = System.Windows.WindowStartupLocation.CenterOwner,
                 Owner = System.Windows.Application.Current.MainWindow
             };

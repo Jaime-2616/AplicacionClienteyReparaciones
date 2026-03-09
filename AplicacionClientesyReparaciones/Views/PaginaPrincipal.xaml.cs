@@ -17,9 +17,5 @@ namespace AplicacionClientesyReparaciones.Views
         {
 			ContenidoPrincipal.Content = new VerReparaciones();
         }
-        private void CrearReparaciones(object sender, RoutedEventArgs e)
-        {
-			ContenidoPrincipal.Content = new CrearReparacion();
-        }
     }
 }
