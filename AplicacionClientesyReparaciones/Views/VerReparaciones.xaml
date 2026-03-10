@@ -20,15 +20,18 @@
 				HorizontalAlignment="Right"
                 Click=" NuevaReparacion_Click"/>
         </Grid>
-        <DataGrid Grid.Row="1"
+		<DataGrid Grid.Row="1"
+			  x:Name="ReparacionesDataGrid"
 			  AutoGenerateColumns="False"
 			  IsReadOnly="True">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="60" />
-                <DataGridTextColumn Header="NombreCliente" Binding="{Binding NombreCliente}" Width="*" />
-                <DataGridTextColumn Header="Descripcion" Binding="{Binding Descripcion}" Width="*" />
-                <DataGridTextColumn Header="Estado" Binding="{Binding Estado}" Width="*" />
-            </DataGrid.Columns>
-        </DataGrid>
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="60" />
+				<DataGridTextColumn Header="Cliente" Binding="{Binding NombreCliente}" Width="*" />
+				<DataGridTextColumn Header="Teléfono" Binding="{Binding Telefono1}" Width="*" />
+				<DataGridTextColumn Header="Fecha entrega" Binding="{Binding FechaDeEntrega}" Width="*" />
+				<DataGridTextColumn Header="Material" Binding="{Binding MaterialEntregado}" Width="*" />
+				<DataGridTextColumn Header="Descripción" Binding="{Binding Descripcion}" Width="2*" />
+			</DataGrid.Columns>
+		</DataGrid>
     </Grid>
 </UserControl>

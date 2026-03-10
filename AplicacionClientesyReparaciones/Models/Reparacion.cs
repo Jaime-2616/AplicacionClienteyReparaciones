@@ -1,0 +1,28 @@
+using Supabase.Postgrest.Attributes;
+using Supabase.Postgrest.Models;
+using System;
+
+namespace AplicacionClientesyReparaciones.Models
+{
+    [Table("Reparaciones")]
+    public class Reparacion : BaseModel
+    {
+        [PrimaryKey("id", false)]
+        public long Id { get; set; }
+
+        [Column("materialEntregado")]
+        public string? MaterialEntregado { get; set; }
+
+        [Column("descripcion")]
+        public string? Descripcion { get; set; }
+
+        [Column("nombreCliente")]
+        public string? NombreCliente { get; set; }
+
+        [Column("fechaDeEntrega")]
+        public DateTime? FechaDeEntrega { get; set; }
+
+        [Column("telefono1")]
+        public long? Telefono1 { get; set; }
+    }
+}
