@@ -12,9 +12,9 @@ TRACE;DEBUG;NET;NET10_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_O
 C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\App.xaml
 6408115765
 
-11882428688
+12-165435878
 225-118377137
 MainWindow.xaml;Views\AgregarCliente.xaml;Views\CrearReparacion.xaml;Views\PaginaPrincipal.xaml;Views\VerReparaciones.xaml;Views\VerUsuarios.xaml;
 
-True
+False
 
