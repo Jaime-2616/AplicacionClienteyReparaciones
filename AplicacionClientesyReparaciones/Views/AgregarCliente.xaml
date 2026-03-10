@@ -30,22 +30,22 @@
 
 
 			<TextBlock Grid.Row="0" Grid.Column="0" Text="Nombre:" Margin="0,0,10,5" VerticalAlignment="Center" />
-			<TextBox   Grid.Row="0" Grid.Column="1" Margin="0,0,0,5" />
+			<TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,0,5" x:Name="NombreTextBox" />
 
-			<TextBlock Grid.Row="1" Grid.Column="0" Text="Apellidos:" Margin="0,0,10,5" VerticalAlignment="Center" />
-			<TextBox   Grid.Row="1" Grid.Column="1" Margin="0,0,0,5" />
+			<TextBlock Grid.Row="1" Grid.Column="0" Text="DNI:" Margin="0,0,10,5" VerticalAlignment="Center" />
+			<TextBox Grid.Row="1" Grid.Column="1" Margin="0,0,0,5" x:Name="DniTextBox" />
 
-			<TextBlock Grid.Row="2" Grid.Column="0" Text="Email:" Margin="0,0,10,5" VerticalAlignment="Center" />
-			<TextBox   Grid.Row="2" Grid.Column="1" Margin="0,0,0,5" />
+			<TextBlock Grid.Row="2" Grid.Column="0" Text="Apellidos:" Margin="0,0,10,5" VerticalAlignment="Center" />
+			<TextBox Grid.Row="2" Grid.Column="1" Margin="0,0,0,5" x:Name="ApellidosTextBox" />
 
 			<TextBlock Grid.Row="3" Grid.Column="0" Text="Teléfono:" Margin="0,0,10,5" VerticalAlignment="Center" />
-			<TextBox   Grid.Row="3" Grid.Column="1" Margin="0,0,0,5" />
+			<TextBox Grid.Row="3" Grid.Column="1" Margin="0,0,0,5" x:Name="TelefonoTextBox" />
 
-			<TextBlock Grid.Row="4" Grid.Column="0" Text="Dirección:" Margin="0,0,10,5" VerticalAlignment="Center" />
-			<TextBox   Grid.Row="4" Grid.Column="1" Margin="0,0,0,5" />
-			
-			<TextBlock Grid.Row="5" Grid.Column="0" Text="DNI:" Margin="0,0,10,5" VerticalAlignment="Center" />
-			<TextBox   Grid.Row="5" Grid.Column="1" Margin="0,0,0,5" />
+			<TextBlock Grid.Row="4" Grid.Column="0" Text="Email:" Margin="0,0,10,5" VerticalAlignment="Center" />
+			<TextBox Grid.Row="4" Grid.Column="1" Margin="0,0,0,5" x:Name="EmailTextBox" />
+
+			<TextBlock Grid.Row="5" Grid.Column="0" Text="Dirección:" Margin="0,0,10,5" VerticalAlignment="Center" />
+			<TextBox Grid.Row="5" Grid.Column="1" Margin="0,0,0,5" x:Name="DireccionTextBox" />
 		
 		
 		</Grid>
@@ -55,7 +55,7 @@
 				HorizontalAlignment="Right"
 				Margin="0,10,0,0">
 			<Button Content="Cancelar" Width="90" Margin="0,0,10,0" Click="Salir" />
-			<Button Content="Guardar" Width="90" />
+			<Button Content="Guardar" Width="90" Click="Guardar_Click" />
 		</StackPanel>
 	</Grid>
 </UserControl>

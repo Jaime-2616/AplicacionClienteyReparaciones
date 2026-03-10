@@ -1,0 +1,37 @@
+﻿using Supabase;
+
+namespace AplicacionClientesyReparaciones
+{
+    public static class SupabaseService
+    {
+        private static Client? _client;
+        private static readonly object _lock = new();
+
+        private const string SupabaseUrl = "https://npugdyhbxmlfmtreqecv.supabase.co";
+        private const string SupabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5wdWdkeWhieG1sZm10cmVxZWN2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwNTU1NjYsImV4cCI6MjA4ODYzMTU2Nn0.4vtiv2iJ142e7SlUnVUSn-mRUfbyYZKTrAdREwrPMWQ";
+
+        public static Client Client
+        {
+            get
+            {
+                if (_client != null)
+                    return _client;
+
+                lock (_lock)
+                {
+                    if (_client != null)
+                        return _client;
+
+                    var options = new SupabaseOptions
+                    {
+                        AutoRefreshToken = true,
+                        AutoConnectRealtime = false
+                    };
+
+                    _client = new Client(SupabaseUrl, SupabaseAnonKey, options);
+                    return _client;
+                }
+            }
+        }
+    }
+}

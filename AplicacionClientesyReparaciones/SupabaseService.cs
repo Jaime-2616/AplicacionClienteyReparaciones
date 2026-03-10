@@ -1,4 +1,5 @@
 using Supabase;
+using System.Threading.Tasks;
 
 namespace AplicacionClientesyReparaciones
 {
@@ -32,6 +33,13 @@ namespace AplicacionClientesyReparaciones
                     return _client;
                 }
             }
+        }
+
+        public static async Task<Client> GetClientAsync()
+        {
+            var client = Client;
+            await client.InitializeAsync();
+            return client;
         }
     }
 }
