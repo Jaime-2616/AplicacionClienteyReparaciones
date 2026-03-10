@@ -1,5 +1,8 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
+using AplicacionClientesyReparaciones.Models;
+using AplicacionClientesyReparaciones;
 
 namespace AplicacionClientesyReparaciones.Views
 {
@@ -8,6 +11,7 @@ namespace AplicacionClientesyReparaciones.Views
         public VerUsuarios()
         {
             InitializeComponent();
+			Loaded += VerUsuarios_Loaded;
         }
 		
 		private void NuevoCliente_Click(object sender, RoutedEventArgs e)
@@ -22,6 +26,29 @@ namespace AplicacionClientesyReparaciones.Views
 				Owner = Application.Current.MainWindow
 			};
 			ventana.ShowDialog();
+			_ = CargarClientesAsync();
+		}
+
+		private async void VerUsuarios_Loaded(object sender, RoutedEventArgs e)
+		{
+			await CargarClientesAsync();
+		}
+
+		private async System.Threading.Tasks.Task CargarClientesAsync()
+		{
+			try
+			{
+				var client = await SupabaseService.GetClientAsync();
+				var response = await client.From<Cliente>().Get();
+				if (this.FindName("ClientesDataGrid") is DataGrid dataGrid)
+				{
+					dataGrid.ItemsSource = response.Models;
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show($"Error al cargar clientes: {ex.Message}", "Supabase", MessageBoxButton.OK, MessageBoxImage.Error);
+			}
 		}
     }
 }

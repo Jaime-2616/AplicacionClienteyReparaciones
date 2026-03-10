@@ -18,13 +18,25 @@ namespace AplicacionClientesyReparaciones.Models
         [Column("apellidos")]
         public string? Apellidos { get; set; }
 
-        [Column("telefono")]
-        public long? Telefono { get; set; }
+        [Column("telefono1")]
+        public long? Telefono1 { get; set; }
+
+        [Column("telefono2")]
+        public long? Telefono2 { get; set; }
 
         [Column("email")]
         public string? Email { get; set; }
 
         [Column("direccion")]
         public string? Direccion { get; set; }
+
+        [Column("Poblacion")]
+        public string? Poblacion { get; set; }
+
+        [Column("Provincia")]
+        public string? Provincia { get; set; }
+
+        [Column("observaciones")]
+        public string? Observaciones { get; set; }
     }
 }

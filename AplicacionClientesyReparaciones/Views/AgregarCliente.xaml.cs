@@ -23,16 +23,21 @@ namespace AplicacionClientesyReparaciones.Views
 
 		private async void Guardar_Click(object sender, RoutedEventArgs e)
 		{
-			var telefonoValido = long.TryParse(TelefonoTextBox.Text, out var telefono);
+			var telefono1Valido = long.TryParse(Telefono1TextBox.Text, out var telefono1);
+			var telefono2Valido = long.TryParse(Telefono2TextBox.Text, out var telefono2);
 
 			var cliente = new Cliente
 			{
 				Nombre = NombreTextBox.Text,
 				Dni = DniTextBox.Text,
 				Apellidos = ApellidosTextBox.Text,
-				Telefono = telefonoValido ? telefono : null,
+				Telefono1 = telefono1Valido ? telefono1 : null,
+				Telefono2 = telefono2Valido ? telefono2 : null,
 				Email = EmailTextBox.Text,
-				Direccion = DireccionTextBox.Text
+				Direccion = DireccionTextBox.Text,
+				Poblacion = PoblacionTextBox.Text,
+				Provincia = ProvinciaTextBox.Text,
+				Observaciones = ObservacionesTextBox.Text
 			};
 
 			try
