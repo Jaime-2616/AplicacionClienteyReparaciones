@@ -1,0 +1,111 @@
+﻿using System;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Documents;
+using System.Windows.Media;
+using AplicacionClientesyReparaciones.Models;
+using AplicacionClientesyReparaciones;
+
+namespace AplicacionClientesyReparaciones.Views
+{
+    public partial class DetalleReparacionWindow : Window
+    {
+        private readonly Reparacion _reparacion;
+
+        public DetalleReparacionWindow(Reparacion reparacion)
+        {
+            InitializeComponent();
+            _reparacion = reparacion;
+            DataContext = reparacion;
+        }
+
+        private async void GuardarEstado_Click(object sender, RoutedEventArgs e)
+        {
+            var estadoSeleccionado = (EstadoComboBox.SelectedValue ?? EstadoComboBox.Text)?.ToString() ?? string.Empty;
+            if (string.IsNullOrWhiteSpace(estadoSeleccionado))
+                return;
+
+            _reparacion.Estado = estadoSeleccionado;
+
+            try
+            {
+                var client = await SupabaseService.GetClientAsync();
+                await client.From<Reparacion>().Update(_reparacion);
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al actualizar el estado: {ex.Message}", "Supabase", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+        private void Imprimir_Click(object sender, RoutedEventArgs e)
+        {
+            var printDialog = new PrintDialog();
+            if (printDialog.ShowDialog() != true)
+            {
+                return;
+            }
+
+            var documento = CrearDocumentoImpresion();
+            documento.PageHeight = printDialog.PrintableAreaHeight;
+            documento.PageWidth = printDialog.PrintableAreaWidth;
+            documento.ColumnWidth = printDialog.PrintableAreaWidth;
+
+            printDialog.PrintDocument(((IDocumentPaginatorSource)documento).DocumentPaginator, "Detalle de reparación");
+        }
+
+        private FlowDocument CrearDocumentoImpresion()
+        {
+            var documento = new FlowDocument
+            {
+                PagePadding = new Thickness(40),
+                FontFamily = new FontFamily("Segoe UI"),
+                FontSize = 12
+            };
+
+            var encabezado = new Paragraph
+            {
+                FontWeight = FontWeights.Bold,
+                Margin = new Thickness(0, 0, 0, 12)
+            };
+            encabezado.Inlines.Add(new Run("DETALLE DE REPARACIÓN"));
+            documento.Blocks.Add(encabezado);
+
+            documento.Blocks.Add(CrearLineaInfo("CLIENTE", _reparacion.NombreCliente));
+            documento.Blocks.Add(CrearLineaInfo("TELÉFONO", _reparacion.Telefono1?.ToString()));
+            documento.Blocks.Add(CrearSeparador());
+            documento.Blocks.Add(CrearLineaInfo("REPARACIÓN", _reparacion.Id.ToString()));
+            documento.Blocks.Add(CrearLineaInfo("FECHA", _reparacion.FechaDeEntrega?.ToString("dd/MM/yyyy")));
+            documento.Blocks.Add(CrearSeparador());
+            documento.Blocks.Add(CrearBloqueTexto("MATERIAL ENTREGADO", _reparacion.MaterialEntregado));
+            documento.Blocks.Add(CrearBloqueTexto("DESCRIPCIÓN AVERÍA", _reparacion.Descripcion));
+            documento.Blocks.Add(CrearSeparador());
+            documento.Blocks.Add(CrearLineaInfo("FIRMA", string.Empty));
+
+            return documento;
+        }
+
+        private static Paragraph CrearLineaInfo(string etiqueta, string? valor)
+        {
+            var paragraph = new Paragraph { Margin = new Thickness(0, 0, 0, 4) };
+            paragraph.Inlines.Add(new Run($"{etiqueta}: ") { FontWeight = FontWeights.Bold });
+            paragraph.Inlines.Add(new Run(valor ?? string.Empty));
+            return paragraph;
+        }
+
+        private static Paragraph CrearBloqueTexto(string etiqueta, string? valor)
+        {
+            var paragraph = new Paragraph { Margin = new Thickness(0, 6, 0, 6) };
+            paragraph.Inlines.Add(new Run(etiqueta) { FontWeight = FontWeights.Bold });
+            paragraph.Inlines.Add(new LineBreak());
+            paragraph.Inlines.Add(new Run(valor ?? string.Empty));
+            return paragraph;
+        }
+
+        private static Paragraph CrearSeparador()
+        {
+            return new Paragraph(new Run(new string('_', 60))) { Margin = new Thickness(0, 6, 0, 6) };
+        }
+        }
+    }
+}
