@@ -20,7 +20,7 @@ namespace AplicacionClientesyReparaciones.Models
         public string? NombreCliente { get; set; }
 
         [Column("fechaDeEntrega")]
-        public DateTime? FechaDeEntrega { get; set; }
+        public DateOnly? FechaDeEntrega { get; set; }
 
         [Column("telefono1")]
         public long? Telefono1 { get; set; }
