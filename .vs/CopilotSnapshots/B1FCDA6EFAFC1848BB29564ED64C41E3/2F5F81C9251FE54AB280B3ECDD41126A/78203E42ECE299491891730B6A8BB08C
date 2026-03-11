@@ -82,8 +82,7 @@ namespace AplicacionClientesyReparaciones.Views
 				FechaDeEntrega = FechaEntregaDatePicker.SelectedDate?.Date,
 				MaterialEntregado = MaterialEntregadoTextBox.Text,
 				Descripcion = DescripcionTextBox.Text,
-				ClienteId = clienteSeleccionado?.Id,
-				Estado = "Pendiente"
+				ClienteId = clienteSeleccionado?.Id
 			};
 
 			try

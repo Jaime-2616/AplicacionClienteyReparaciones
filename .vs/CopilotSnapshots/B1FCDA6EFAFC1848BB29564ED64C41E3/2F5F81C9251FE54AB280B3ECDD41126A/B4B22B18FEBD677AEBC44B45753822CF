@@ -1,4 +1,4 @@
-using Supabase.Postgrest.Attributes;
+﻿using Supabase.Postgrest.Attributes;
 using Supabase.Postgrest.Models;
 using System;
 
@@ -27,8 +27,5 @@ namespace AplicacionClientesyReparaciones.Models
 
         [Column("cliente_id")]
         public long? ClienteId { get; set; }
-
-        [Column("estado")]
-        public string? Estado { get; set; }
     }
 }
