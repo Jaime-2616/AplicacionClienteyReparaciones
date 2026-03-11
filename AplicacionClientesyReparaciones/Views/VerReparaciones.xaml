@@ -28,8 +28,7 @@
 			<DataGrid.Columns>
 				<DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="60" />
 				<DataGridTextColumn Header="Cliente" Binding="{Binding NombreCliente}" Width="*" />
-				<DataGridTextColumn Header="Teléfono" Binding="{Binding Telefono1}" Width="*" />
-				<DataGridTextColumn Header="Fecha entrega" Binding="{Binding FechaDeEntrega}" Width="*" />
+				<DataGridTextColumn Header="Movil" Binding="{Binding Telefono1}" Width="*" />
 				<DataGridTextColumn Header="Material" Binding="{Binding MaterialEntregado}" Width="*" />
 				<DataGridTextColumn Header="Descripción" Binding="{Binding Descripcion}" Width="2*" />
 				<DataGridTextColumn Header="Estado" Binding="{Binding Estado}" Width="*" />

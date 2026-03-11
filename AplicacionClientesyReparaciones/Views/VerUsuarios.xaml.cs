@@ -50,5 +50,17 @@ namespace AplicacionClientesyReparaciones.Views
 				MessageBox.Show($"Error al cargar clientes: {ex.Message}", "Supabase", MessageBoxButton.OK, MessageBoxImage.Error);
 			}
 		}
+
+		private void ClientesDataGrid_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+		{
+			if (sender is DataGrid grid && grid.SelectedItem is Cliente cliente)
+			{
+				var ventana = new DetalleClienteWindow(cliente)
+				{
+					Owner = Application.Current.MainWindow
+				};
+				ventana.ShowDialog();
+			}
+		}
     }
 }

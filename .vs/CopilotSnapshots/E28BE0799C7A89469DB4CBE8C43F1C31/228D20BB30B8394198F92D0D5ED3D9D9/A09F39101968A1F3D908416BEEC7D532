@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="AplicacionClientesyReparaciones.Views.VerUsuarios"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<Grid Margin="10">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+
+		<Grid Grid.Row="0" Margin="0,0,0,10">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="Auto" />
+			</Grid.ColumnDefinitions>
+			<TextBlock Text="Listado de clientes" FontSize="18" FontWeight="Bold" VerticalAlignment="Center" />
+			<Button Grid.Column="1"
+					Content="Nuevo cliente"
+					Width="120"
+					Height="30"
+					HorizontalAlignment="Right"
+					Click="NuevoCliente_Click" />
+		</Grid>
+		<DataGrid Grid.Row="1"
+				  x:Name="ClientesDataGrid"
+				  AutoGenerateColumns="False"
+				  IsReadOnly="True"
+				  MouseDoubleClick="ClientesDataGrid_MouseDoubleClick">
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="60" />
+				<DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="*" />
+				<DataGridTextColumn Header="Apellidos" Binding="{Binding Apellidos}" Width="*" />
+				<DataGridTextColumn Header="Teléfono 1" Binding="{Binding Telefono1}" Width="*" />
+			</DataGrid.Columns>
+		</DataGrid>
+    </Grid>
+</UserControl>
