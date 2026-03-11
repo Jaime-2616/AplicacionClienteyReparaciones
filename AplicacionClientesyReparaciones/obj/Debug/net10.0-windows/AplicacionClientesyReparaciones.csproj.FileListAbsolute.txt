@@ -50,3 +50,5 @@ C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientes
 C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\bin\Debug\net10.0-windows\Websocket.Client.dll
 C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\obj\Debug\net10.0-windows\AplicacionClientesyReparaciones.csproj.AssemblyReference.cache
 C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\obj\Debug\net10.0-windows\Aplicaci.D0D9B757.Up2Date
+C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\obj\Debug\net10.0-windows\Views\DetalleReparacionWindow.baml
+C:\Users\Pc\Desktop\Practicas\AplicacionClientesyReparaciones\AplicacionClientesyReparaciones\obj\Debug\net10.0-windows\Views\DetalleReparacionWindow.g.cs

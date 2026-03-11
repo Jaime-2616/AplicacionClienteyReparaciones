@@ -51,5 +51,18 @@ namespace AplicacionClientesyReparaciones.Views
 				MessageBox.Show($"Error al cargar reparaciones: {ex.Message}", "Supabase", MessageBoxButton.OK, MessageBoxImage.Error);
 			}
 		}
+
+		private async void ReparacionesDataGrid_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+		{
+			if (sender is DataGrid grid && grid.SelectedItem is Reparacion reparacion)
+			{
+				var ventana = new DetalleReparacionWindow(reparacion)
+				{
+					Owner = Application.Current.MainWindow
+				};
+				ventana.ShowDialog();
+				await CargarReparacionesAsync();
+			}
+		}
     }
 }

@@ -1,0 +1,48 @@
+﻿using System;
+using System.Windows;
+using System.Windows.Controls;
+using AplicacionClientesyReparaciones.Models;
+using AplicacionClientesyReparaciones;
+
+namespace AplicacionClientesyReparaciones.Views
+{
+    public partial class DetalleReparacionWindow : Window
+    {
+        private readonly Reparacion _reparacion;
+
+        public DetalleReparacionWindow(Reparacion reparacion)
+        {
+            InitializeComponent();
+            _reparacion = reparacion;
+            DataContext = reparacion;
+            if (FindName("EstadoComboBox") is ComboBox combo)
+            {
+                combo.SelectedItem = reparacion.Estado ?? "Pendiente";
+            }
+        }
+
+        private async void GuardarEstado_Click(object sender, RoutedEventArgs e)
+        {
+            var estadoSeleccionado = string.Empty;
+            if (FindName("EstadoComboBox") is ComboBox combo)
+            {
+                estadoSeleccionado = (combo.SelectedItem as ComboBoxItem)?.Content?.ToString() ?? string.Empty;
+            }
+            if (string.IsNullOrWhiteSpace(estadoSeleccionado))
+                return;
+
+            _reparacion.Estado = estadoSeleccionado;
+
+            try
+            {
+                var client = await SupabaseService.GetClientAsync();
+                await client.From<Reparacion>().Update(_reparacion);
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al actualizar el estado: {ex.Message}", "Supabase", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+﻿using System.Windows;
+using AplicacionClientesyReparaciones.Models;
+
+namespace AplicacionClientesyReparaciones.Views
+{
+    public partial class DetalleReparacionWindow : Window
+    {
+        public DetalleReparacionWindow(Reparacion reparacion)
+        {
+            InitializeComponent();
+            DataContext = reparacion;
+        }
+    }
+}
