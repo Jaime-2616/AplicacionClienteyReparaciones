@@ -1,4 +1,4 @@
-<UserControl x:Class="AplicacionClientesyReparaciones.Views.VerReparaciones"
+﻿<UserControl x:Class="AplicacionClientesyReparaciones.Views.VerReparaciones"
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Grid Margin="10">
@@ -8,10 +8,6 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0" Margin="0,0,0,10">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
@@ -23,16 +19,6 @@
 				Height="30"
 				HorizontalAlignment="Right"
                 Click=" NuevaReparacion_Click"/>
-
-            <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="0,8,0,0" VerticalAlignment="Center">
-                <TextBlock Text="Estado:" Margin="0,0,8,0" VerticalAlignment="Center" />
-                <ComboBox x:Name="EstadoFilterComboBox" Width="160" SelectionChanged="EstadoFilterComboBox_SelectionChanged">
-                    <ComboBoxItem Content="Todas" />
-                    <ComboBoxItem Content="Pendiente" />
-                    <ComboBoxItem Content="En proceso" />
-                    <ComboBoxItem Content="Finalizada" />
-                </ComboBox>
-            </StackPanel>
         </Grid>
 		<DataGrid Grid.Row="1"
 			  x:Name="ReparacionesDataGrid"

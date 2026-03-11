@@ -1,4 +1,4 @@
-<Window x:Class="AplicacionClientesyReparaciones.Views.DetalleClienteWindow"
+﻿<Window x:Class="AplicacionClientesyReparaciones.Views.DetalleClienteWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Detalle de cliente" Height="450" Width="500">
@@ -38,38 +38,37 @@
             <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Id}" IsReadOnly="True" Margin="0,0,0,5" />
 
             <TextBlock Grid.Row="1" Grid.Column="0" Text="Nombre:" Margin="0,0,10,5" />
-            <TextBox Grid.Row="1" Grid.Column="1" x:Name="NombreTextBox" Text="{Binding Nombre}" Margin="0,0,0,5" />
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Nombre}" IsReadOnly="True" Margin="0,0,0,5" />
 
             <TextBlock Grid.Row="2" Grid.Column="0" Text="Apellidos:" Margin="0,0,10,5" />
-            <TextBox Grid.Row="2" Grid.Column="1" x:Name="ApellidosTextBox" Text="{Binding Apellidos}" Margin="0,0,0,5" />
+            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Apellidos}" IsReadOnly="True" Margin="0,0,0,5" />
 
             <TextBlock Grid.Row="3" Grid.Column="0" Text="DNI:" Margin="0,0,10,5" />
-            <TextBox Grid.Row="3" Grid.Column="1" x:Name="DniTextBox" Text="{Binding Dni}" Margin="0,0,0,5" />
+            <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Dni}" IsReadOnly="True" Margin="0,0,0,5" />
 
             <TextBlock Grid.Row="4" Grid.Column="0" Text="Movil 1:" Margin="0,0,10,5" />
-            <TextBox Grid.Row="4" Grid.Column="1" x:Name="Telefono1TextBox" Text="{Binding Telefono1}" Margin="0,0,0,5" />
+            <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Telefono1}" IsReadOnly="True" Margin="0,0,0,5" />
 
             <TextBlock Grid.Row="5" Grid.Column="0" Text="Movil 2:" Margin="0,0,10,5" />
-            <TextBox Grid.Row="5" Grid.Column="1" x:Name="Telefono2TextBox" Text="{Binding Telefono2}" Margin="0,0,0,5" />
+            <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Telefono2}" IsReadOnly="True" Margin="0,0,0,5" />
 
             <TextBlock Grid.Row="6" Grid.Column="0" Text="Email:" Margin="0,0,10,5" />
-            <TextBox Grid.Row="6" Grid.Column="1" x:Name="EmailTextBox" Text="{Binding Email}" Margin="0,0,0,5" />
+            <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding Email}" IsReadOnly="True" Margin="0,0,0,5" />
 
             <TextBlock Grid.Row="7" Grid.Column="0" Text="Dirección:" Margin="0,0,10,5" />
-            <TextBox Grid.Row="7" Grid.Column="1" x:Name="DireccionTextBox" Text="{Binding Direccion}" Margin="0,0,0,5" />
+            <TextBox Grid.Row="7" Grid.Column="1" Text="{Binding Direccion}" IsReadOnly="True" Margin="0,0,0,5" />
 
             <TextBlock Grid.Row="8" Grid.Column="0" Text="Población:" Margin="0,0,10,5" />
-            <TextBox Grid.Row="8" Grid.Column="1" x:Name="PoblacionTextBox" Text="{Binding Poblacion}" Margin="0,0,0,5" />
+            <TextBox Grid.Row="8" Grid.Column="1" Text="{Binding Poblacion}" IsReadOnly="True" Margin="0,0,0,5" />
 
             <TextBlock Grid.Row="9" Grid.Column="0" Text="Provincia:" Margin="0,0,10,5" />
-            <TextBox Grid.Row="9" Grid.Column="1" x:Name="ProvinciaTextBox" Text="{Binding Provincia}" Margin="0,0,0,5" />
+            <TextBox Grid.Row="9" Grid.Column="1" Text="{Binding Provincia}" IsReadOnly="True" Margin="0,0,0,5" />
 
             <TextBlock Grid.Row="10" Grid.Column="0" Text="Observaciones:" Margin="0,0,10,5" VerticalAlignment="Top" />
-            <TextBox Grid.Row="10" Grid.Column="1" x:Name="ObservacionesTextBox" Text="{Binding Observaciones}" Margin="0,0,0,5" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Height="100" />
+            <TextBox Grid.Row="10" Grid.Column="1" Text="{Binding Observaciones}" IsReadOnly="True" Margin="0,0,0,5" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Height="100" />
         </Grid>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
-            <Button Content="Guardar" Width="90" Margin="0,0,10,0" Click="Guardar_Click" />
             <Button Content="Cerrar" Width="90" IsCancel="True" />
         </StackPanel>
     </Grid>

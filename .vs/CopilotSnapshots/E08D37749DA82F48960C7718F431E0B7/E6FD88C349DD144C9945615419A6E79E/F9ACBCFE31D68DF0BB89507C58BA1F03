@@ -6,10 +6,8 @@ using AplicacionClientesyReparaciones;
 
 namespace AplicacionClientesyReparaciones.Views
 {
-    public partial class VerReparaciones : UserControl
+	public partial class VerReparaciones : UserControl
     {
-        private System.Collections.Generic.List<Reparacion> _reparaciones = new();
-
         public VerReparaciones()
         {
             InitializeComponent();
@@ -34,7 +32,6 @@ namespace AplicacionClientesyReparaciones.Views
 
 		private async void VerReparaciones_Loaded(object sender, RoutedEventArgs e)
 		{
-			EstadoFilterComboBox.SelectedIndex = 0;
 			await CargarReparacionesAsync();
 		}
 
@@ -44,36 +41,15 @@ namespace AplicacionClientesyReparaciones.Views
 			{
 				var client = await SupabaseService.GetClientAsync();
 				var response = await client.From<Reparacion>().Get();
-				_reparaciones = response.Models;
-				AplicarFiltroEstado();
+				if (this.FindName("ReparacionesDataGrid") is DataGrid dataGrid)
+				{
+					dataGrid.ItemsSource = response.Models;
+				}
 			}
 			catch (Exception ex)
 			{
 				MessageBox.Show($"Error al cargar reparaciones: {ex.Message}", "Supabase", MessageBoxButton.OK, MessageBoxImage.Error);
 			}
-		}
-
-		private void EstadoFilterComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-		{
-			AplicarFiltroEstado();
-		}
-
-		private void AplicarFiltroEstado()
-		{
-			if (ReparacionesDataGrid == null)
-			{
-				return;
-			}
-
-			var estadoSeleccionado = (EstadoFilterComboBox.SelectedItem as ComboBoxItem)?.Content?.ToString();
-			if (string.IsNullOrWhiteSpace(estadoSeleccionado) || estadoSeleccionado == "Todas")
-			{
-				ReparacionesDataGrid.ItemsSource = _reparaciones;
-				return;
-			}
-
-			ReparacionesDataGrid.ItemsSource = _reparaciones.FindAll(reparacion =>
-				string.Equals(reparacion.Estado, estadoSeleccionado, StringComparison.OrdinalIgnoreCase));
 		}
 
 		private async void ReparacionesDataGrid_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
