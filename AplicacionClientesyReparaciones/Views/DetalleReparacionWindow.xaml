@@ -62,7 +62,7 @@
             <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding MaterialEntregado}" IsReadOnly="True" Margin="0,0,0,5" />
 
             <TextBlock Grid.Row="4" Grid.Column="0" Text="Descripción:" Margin="0,0,10,5" VerticalAlignment="Top" />
-            <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Descripcion}" IsReadOnly="True" Margin="0,0,0,5" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Height="120" />
+                <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Descripcion}" IsReadOnly="True" Margin="0,0,0,5" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"  Height="120" VerticalContentAlignment="Top" />
 
 			<TextBlock Grid.Row="5" Grid.Column="0" Text="Estado:" Margin="0,0,10,5" VerticalAlignment="Center" />
             <ComboBox Grid.Row="5" Grid.Column="1" Margin="0,0,0,5" x:Name="EstadoComboBox"
