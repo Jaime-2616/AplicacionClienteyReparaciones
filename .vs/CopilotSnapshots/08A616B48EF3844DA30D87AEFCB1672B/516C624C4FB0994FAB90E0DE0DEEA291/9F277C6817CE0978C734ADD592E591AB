@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="AplicacionClientesyReparaciones.Views.VerReparaciones"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	MinWidth="760"
+	MinHeight="540"
+	Background="#F3F6FB">
+	<UserControl.Resources>
+		<Style TargetType="Button">
+			<Setter Property="Height" Value="34" />
+			<Setter Property="Padding" Value="16,0" />
+			<Setter Property="Background" Value="#2563EB" />
+			<Setter Property="Foreground" Value="White" />
+			<Setter Property="BorderBrush" Value="#2563EB" />
+		</Style>
+		<Style TargetType="ComboBox">
+			<Setter Property="Height" Value="32" />
+			<Setter Property="Padding" Value="6,0" />
+		</Style>
+	</UserControl.Resources>
+	<Border Margin="20" Background="White" CornerRadius="12" Padding="20" BorderBrush="#E2E8F0" BorderThickness="1">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="0,0,0,16">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Listado de reparaciones" FontSize="20" FontWeight="Bold" Foreground="#1F2937" VerticalAlignment="Center" />
+            <Button Grid.Column="1"
+				Content="Crear Reparacion"
+				Width="150"
+				HorizontalAlignment="Right"
+                Click=" NuevaReparacion_Click"/>
+
+            <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="0,8,0,0" VerticalAlignment="Center">
+                <TextBlock Text="Estado:" Margin="0,0,8,0" VerticalAlignment="Center" />
+                <ComboBox x:Name="EstadoFilterComboBox" Width="160" SelectionChanged="EstadoFilterComboBox_SelectionChanged">
+                    <ComboBoxItem Content="Todas" />
+                    <ComboBoxItem Content="Pendiente" />
+                    <ComboBoxItem Content="En proceso" />
+                    <ComboBoxItem Content="Finalizada" />
+                </ComboBox>
+            </StackPanel>
+        </Grid>
+		<DataGrid Grid.Row="1"
+			  x:Name="ReparacionesDataGrid"
+			  AutoGenerateColumns="False"
+			  AlternatingRowBackground="#F8FAFC"
+			  RowBackground="White"
+			  GridLinesVisibility="Horizontal"
+			  BorderBrush="#E2E8F0"
+			  BorderThickness="1"
+			  IsReadOnly="True"
+			  MouseDoubleClick="ReparacionesDataGrid_MouseDoubleClick">
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="60" />
+				<DataGridTextColumn Header="Cliente" Binding="{Binding NombreCliente}" Width="*" />
+				<DataGridTextColumn Header="Movil" Binding="{Binding Telefono1}" Width="*" />
+				<DataGridTextColumn Header="Material" Binding="{Binding MaterialEntregado}" Width="*" />
+				<DataGridTextColumn Header="Descripción" Binding="{Binding Descripcion}" Width="2*" />
+				<DataGridTextColumn Header="Estado" Binding="{Binding Estado}" Width="*" />
+			</DataGrid.Columns>
+		</DataGrid>
+    </Grid>
+	</Border>
+</UserControl>
