@@ -121,5 +121,10 @@ namespace AplicacionClientesyReparaciones.Views
                     MessageBoxImage.Error);
             }
         }
+
+        private void DescripcionTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

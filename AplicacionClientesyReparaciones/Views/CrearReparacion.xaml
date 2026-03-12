@@ -126,12 +126,13 @@
 					   VerticalAlignment="Top"/>
 
                     <TextBox Grid.Row="4"
-					 Margin="0,10,10,205"
-					 AcceptsReturn="True"
-					 TextWrapping="Wrap"
-					 VerticalScrollBarVisibility="Auto"
-					 Height="120"
-					 x:Name="DescripcionTextBox" Grid.Column="1" />
+                     Margin="0,10,10,205"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"
+                     VerticalScrollBarVisibility="Auto"
+                     Height="120" MaxHeight="120"
+                     Width="450"
+                     x:Name="DescripcionTextBox" Grid.Column="1" VerticalContentAlignment="Top" />
                 </Grid>
 
                 <StackPanel Grid.Row="2"
