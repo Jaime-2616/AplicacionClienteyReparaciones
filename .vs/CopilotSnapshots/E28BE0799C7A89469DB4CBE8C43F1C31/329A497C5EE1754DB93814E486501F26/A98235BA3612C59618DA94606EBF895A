@@ -1,4 +1,4 @@
-<UserControl x:Class="AplicacionClientesyReparaciones.Views.AgregarCliente"
+﻿<UserControl x:Class="AplicacionClientesyReparaciones.Views.AgregarCliente"
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 	<Grid Margin="10">
@@ -38,7 +38,7 @@
 			<TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,0,5" x:Name="NombreTextBox" />
 
 			<TextBlock Grid.Row="1" Grid.Column="0" Text="DNI:" Margin="0,0,10,5" VerticalAlignment="Center" />
-			<TextBox Grid.Row="1" Grid.Column="1" Margin="0,0,0,5" x:Name="DniTextBox" MaxLength="9" />
+			<TextBox Grid.Row="1" Grid.Column="1" Margin="0,0,0,5" x:Name="DniTextBox" />
 
 			<TextBlock Grid.Row="2" Grid.Column="0" Text="Apellidos:" Margin="0,0,10,5" VerticalAlignment="Center" />
 			<TextBox Grid.Row="2" Grid.Column="1" Margin="0,0,0,5" x:Name="ApellidosTextBox" />

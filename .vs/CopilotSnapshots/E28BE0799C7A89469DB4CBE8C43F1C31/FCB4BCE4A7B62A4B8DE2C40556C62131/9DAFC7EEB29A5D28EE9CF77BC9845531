@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using AplicacionClientesyReparaciones.Models;
@@ -24,34 +23,17 @@ namespace AplicacionClientesyReparaciones.Views
 
 		private async void Guardar_Click(object sender, RoutedEventArgs e)
 		{
-			// Validar DNI: exactamente 9 caracteres
-			var dni = DniTextBox.Text.Trim();
-			if (dni.Length != 9)
-			{
-				MessageBox.Show("El DNI debe tener 9 caracteres.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
-				return;
-			}
-
-			// Validar email con un patrón sencillo de correo electrónico
-			var email = EmailTextBox.Text.Trim();
-			var patronEmail = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
-			if (string.IsNullOrWhiteSpace(email) || !Regex.IsMatch(email, patronEmail))
-			{
-				MessageBox.Show("El email no es válido.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
-				return;
-			}
-
 			var telefono1Valido = long.TryParse(Telefono1TextBox.Text, out var telefono1);
 			var telefono2Valido = long.TryParse(Telefono2TextBox.Text, out var telefono2);
 
 			var cliente = new Cliente
 			{
 				Nombre = NombreTextBox.Text,
-				Dni = dni,
+				Dni = DniTextBox.Text,
 				Apellidos = ApellidosTextBox.Text,
 				Telefono1 = telefono1Valido ? telefono1 : null,
 				Telefono2 = telefono2Valido ? telefono2 : null,
-				Email = email,
+				Email = EmailTextBox.Text,
 				Direccion = DireccionTextBox.Text,
 				Poblacion = PoblacionTextBox.Text,
 				Provincia = ProvinciaTextBox.Text,
