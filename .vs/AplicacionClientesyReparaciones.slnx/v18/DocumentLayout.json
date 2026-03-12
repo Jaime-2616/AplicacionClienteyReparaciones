@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Pc\\Desktop\\Practicas\\AplicacionClientesyReparaciones\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{9873C684-A7F2-2880-DB13-159B2C9008E4}|AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones.csproj|c:\\users\\pc\\desktop\\practicas\\aplicacionclientesyreparaciones\\aplicacionclientesyreparaciones\\views\\detallereparacionwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9873C684-A7F2-2880-DB13-159B2C9008E4}|AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones.csproj|solutionrelative:aplicacionclientesyreparaciones\\views\\detallereparacionwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9873C684-A7F2-2880-DB13-159B2C9008E4}|AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones.csproj|c:\\users\\pc\\desktop\\practicas\\aplicacionclientesyreparaciones\\aplicacionclientesyreparaciones\\views\\agregarcliente.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{9873C684-A7F2-2880-DB13-159B2C9008E4}|AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones.csproj|solutionrelative:aplicacionclientesyreparaciones\\views\\agregarcliente.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
@@ -41,10 +45,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{9873C684-A7F2-2880-DB13-159B2C9008E4}|AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones.csproj|c:\\users\\pc\\desktop\\practicas\\aplicacionclientesyreparaciones\\aplicacionclientesyreparaciones\\models\\reparacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9873C684-A7F2-2880-DB13-159B2C9008E4}|AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones.csproj|solutionrelative:aplicacionclientesyreparaciones\\models\\reparacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9873C684-A7F2-2880-DB13-159B2C9008E4}|AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones.csproj|c:\\users\\pc\\desktop\\practicas\\aplicacionclientesyreparaciones\\aplicacionclientesyreparaciones\\views\\detallereparacionwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9873C684-A7F2-2880-DB13-159B2C9008E4}|AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones.csproj|solutionrelative:aplicacionclientesyreparaciones\\views\\detallereparacionwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9873C684-A7F2-2880-DB13-159B2C9008E4}|AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones.csproj|c:\\users\\pc\\desktop\\practicas\\aplicacionclientesyreparaciones\\aplicacionclientesyreparaciones\\views\\verusuarios.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -106,35 +106,22 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "PaginaPrincipal.xaml",
-              "DocumentMoniker": "C:\\Users\\Pc\\Desktop\\Practicas\\AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones\\Views\\PaginaPrincipal.xaml",
-              "RelativeDocumentMoniker": "AplicacionClientesyReparaciones\\Views\\PaginaPrincipal.xaml",
-              "ToolTip": "C:\\Users\\Pc\\Desktop\\Practicas\\AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones\\Views\\PaginaPrincipal.xaml",
-              "RelativeToolTip": "AplicacionClientesyReparaciones\\Views\\PaginaPrincipal.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-03-06T11:06:12.167Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "CrearReparacion.xaml",
               "DocumentMoniker": "C:\\Users\\Pc\\Desktop\\Practicas\\AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones\\Views\\CrearReparacion.xaml",
               "RelativeDocumentMoniker": "AplicacionClientesyReparaciones\\Views\\CrearReparacion.xaml",
               "ToolTip": "C:\\Users\\Pc\\Desktop\\Practicas\\AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones\\Views\\CrearReparacion.xaml",
               "RelativeToolTip": "AplicacionClientesyReparaciones\\Views\\CrearReparacion.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-03-06T11:03:51.052Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-06T11:03:51.052Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "AgregarCliente.xaml",
               "DocumentMoniker": "C:\\Users\\Pc\\Desktop\\Practicas\\AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones\\Views\\AgregarCliente.xaml",
               "RelativeDocumentMoniker": "AplicacionClientesyReparaciones\\Views\\AgregarCliente.xaml",
@@ -146,7 +133,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "CrearReparacion.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Pc\\Desktop\\Practicas\\AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones\\Views\\CrearReparacion.xaml.cs",
               "RelativeDocumentMoniker": "AplicacionClientesyReparaciones\\Views\\CrearReparacion.xaml.cs",
@@ -154,12 +141,35 @@
               "RelativeToolTip": "AplicacionClientesyReparaciones\\Views\\CrearReparacion.xaml.cs",
               "ViewState": "AgIAAF8AAAAAAAAAAAAuwH4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T11:23:22.961Z",
+              "WhenOpened": "2026-03-06T11:23:22.961Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DetalleReparacionWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Pc\\Desktop\\Practicas\\AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones\\Views\\DetalleReparacionWindow.xaml.cs",
+              "RelativeDocumentMoniker": "AplicacionClientesyReparaciones\\Views\\DetalleReparacionWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Pc\\Desktop\\Practicas\\AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones\\Views\\DetalleReparacionWindow.xaml.cs",
+              "RelativeToolTip": "AplicacionClientesyReparaciones\\Views\\DetalleReparacionWindow.xaml.cs",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAgwF0AAABoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-11T09:23:48.721Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "PaginaPrincipal.xaml",
+              "DocumentMoniker": "C:\\Users\\Pc\\Desktop\\Practicas\\AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones\\Views\\PaginaPrincipal.xaml",
+              "RelativeDocumentMoniker": "AplicacionClientesyReparaciones\\Views\\PaginaPrincipal.xaml",
+              "ToolTip": "C:\\Users\\Pc\\Desktop\\Practicas\\AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones\\Views\\PaginaPrincipal.xaml",
+              "RelativeToolTip": "AplicacionClientesyReparaciones\\Views\\PaginaPrincipal.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-03-06T11:06:12.167Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "VerUsuarios.xaml",
               "DocumentMoniker": "C:\\Users\\Pc\\Desktop\\Practicas\\AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones\\Views\\VerUsuarios.xaml",
               "RelativeDocumentMoniker": "AplicacionClientesyReparaciones\\Views\\VerUsuarios.xaml",
@@ -170,7 +180,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "VerReparaciones.xaml",
               "DocumentMoniker": "C:\\Users\\Pc\\Desktop\\Practicas\\AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones\\Views\\VerReparaciones.xaml",
               "RelativeDocumentMoniker": "AplicacionClientesyReparaciones\\Views\\VerReparaciones.xaml",
@@ -181,7 +191,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "AgregarCliente.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Pc\\Desktop\\Practicas\\AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones\\Views\\AgregarCliente.xaml.cs",
               "RelativeDocumentMoniker": "AplicacionClientesyReparaciones\\Views\\AgregarCliente.xaml.cs",
@@ -193,7 +203,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Reparacion.cs",
               "DocumentMoniker": "C:\\Users\\Pc\\Desktop\\Practicas\\AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones\\Models\\Reparacion.cs",
               "RelativeDocumentMoniker": "AplicacionClientesyReparaciones\\Models\\Reparacion.cs",
@@ -205,19 +215,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "DetalleReparacionWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Pc\\Desktop\\Practicas\\AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones\\Views\\DetalleReparacionWindow.xaml.cs",
-              "RelativeDocumentMoniker": "AplicacionClientesyReparaciones\\Views\\DetalleReparacionWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\Pc\\Desktop\\Practicas\\AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones\\Views\\DetalleReparacionWindow.xaml.cs",
-              "RelativeToolTip": "AplicacionClientesyReparaciones\\Views\\DetalleReparacionWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFwAAACPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-11T09:23:48.721Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "DetalleReparacionWindow.xaml",
               "DocumentMoniker": "C:\\Users\\Pc\\Desktop\\Practicas\\AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones\\Views\\DetalleReparacionWindow.xaml",
               "RelativeDocumentMoniker": "AplicacionClientesyReparaciones\\Views\\DetalleReparacionWindow.xaml",
@@ -240,7 +238,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "DetalleClienteWindow.xaml",
               "DocumentMoniker": "C:\\Users\\Pc\\Desktop\\Practicas\\AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones\\Views\\DetalleClienteWindow.xaml",
               "RelativeDocumentMoniker": "AplicacionClientesyReparaciones\\Views\\DetalleClienteWindow.xaml",
@@ -331,8 +329,7 @@
               "RelativeToolTip": "AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones.csproj",
               "ViewState": "AgIAAA0AAAAAAAAAAABBwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-03-11T09:24:48.958Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-11T09:24:48.958Z"
             },
             {
               "$type": "Document",

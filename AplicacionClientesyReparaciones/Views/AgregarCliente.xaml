@@ -64,21 +64,23 @@
 
 			<TextBlock Grid.Row="3" Grid.Column="0" Text="Teléfono 1:" Margin="0,0,10,5" VerticalAlignment="Center" />
 			<TextBox Grid.Row="3" Grid.Column="1" Margin="0,0,0,5" x:Name="Telefono1TextBox" />
+                
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="Teléfono 2:" Margin="0,0,10,5" VerticalAlignment="Center" />
+            <TextBox Grid.Row="4" Grid.Column="1" Margin="0,0,0,5" x:Name="Telefono2TextBox" />
 
-			<TextBlock Grid.Row="4" Grid.Column="0" Text="Email:" Margin="0,0,10,5" VerticalAlignment="Center" />
-			<TextBox Grid.Row="4" Grid.Column="1" Margin="0,0,0,5" x:Name="EmailTextBox" />
+                <TextBlock Grid.Row="5" Grid.Column="0" Text="Email:" Margin="0,0,10,5" VerticalAlignment="Center" />
+			<TextBox Grid.Row="5" Grid.Column="1" Margin="0,0,0,5" x:Name="EmailTextBox" />
 
-			<TextBlock Grid.Row="5" Grid.Column="0" Text="Dirección:" Margin="0,0,10,5" VerticalAlignment="Center" />
-			<TextBox Grid.Row="5" Grid.Column="1" Margin="0,0,0,5" x:Name="DireccionTextBox" />
+			<TextBlock Grid.Row="6" Grid.Column="0" Text="Dirección:" Margin="0,0,10,5" VerticalAlignment="Center" />
+			<TextBox Grid.Row="6" Grid.Column="1" Margin="0,0,0,5" x:Name="DireccionTextBox" />
 
-			<TextBlock Grid.Row="6" Grid.Column="0" Text="Población:" Margin="0,0,10,5" VerticalAlignment="Center" />
-			<TextBox Grid.Row="6" Grid.Column="1" Margin="0,0,0,5" x:Name="PoblacionTextBox" />
+			<TextBlock Grid.Row="7" Grid.Column="0" Text="Población:" Margin="0,0,10,5" VerticalAlignment="Center" />
+			<TextBox Grid.Row="7" Grid.Column="1" Margin="0,0,0,5" x:Name="PoblacionTextBox" />
 
-			<TextBlock Grid.Row="7" Grid.Column="0" Text="Provincia:" Margin="0,0,10,5" VerticalAlignment="Center" />
-			<TextBox Grid.Row="7" Grid.Column="1" Margin="0,0,0,5" x:Name="ProvinciaTextBox" />
+			<TextBlock Grid.Row="8" Grid.Column="0" Text="Provincia:" Margin="0,0,10,5" VerticalAlignment="Center" />
+			<TextBox Grid.Row="8" Grid.Column="1" Margin="0,0,0,5" x:Name="ProvinciaTextBox" />
 
-			<TextBlock Grid.Row="8" Grid.Column="0" Text="Teléfono 2:" Margin="0,0,10,5" VerticalAlignment="Center" />
-			<TextBox Grid.Row="8" Grid.Column="1" Margin="0,0,0,5" x:Name="Telefono2TextBox" />
+			
 
 			<TextBlock Grid.Row="9" Grid.Column="0" Text="Observaciones:" Margin="0,0,10,5" VerticalAlignment="Top" />
 			<TextBox Grid.Row="9" Grid.Column="1" Margin="0,0,0,5" x:Name="ObservacionesTextBox"

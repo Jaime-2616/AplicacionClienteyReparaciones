@@ -81,16 +81,17 @@ namespace AplicacionClientesyReparaciones.Views
             encabezado.Inlines.Add(new Run("943321439"));
             documento.Blocks.Add(encabezado);
 
-            documento.Blocks.Add(CrearLineaInfo("CLIENTE", _reparacion.NombreCliente));
-            documento.Blocks.Add(CrearLineaInfo("TELÉFONO", _reparacion.Telefono1?.ToString()));
+            documento.Blocks.Add(CrearLineaInfo("CLIENTE:", _reparacion.NombreCliente));
+            documento.Blocks.Add(CrearLineaInfo("TELÉFONO:", _reparacion.Telefono1?.ToString()));
             documento.Blocks.Add(CrearSeparador());
-            documento.Blocks.Add(CrearLineaInfo("REPARACIÓN", _reparacion.Id.ToString()));
-            documento.Blocks.Add(CrearLineaInfo("FECHA", _reparacion.FechaDeEntrega?.ToString("dd/MM/yyyy")));
+            documento.Blocks.Add(CrearLineaInfo("REPARACIÓN:", _reparacion.Id.ToString()));
+            documento.Blocks.Add(CrearLineaInfo("FECHA:", _reparacion.FechaDeEntrega?.ToString("dd/MM/yyyy")));
             documento.Blocks.Add(CrearSeparador());
-            documento.Blocks.Add(CrearBloqueTexto("MATERIAL ENTREGADO", _reparacion.MaterialEntregado));
-            documento.Blocks.Add(CrearBloqueTexto("DESCRIPCIÓN AVERÍA", _reparacion.Descripcion));
+            documento.Blocks.Add(CrearBloqueTexto("MATERIAL ENTREGADO:", _reparacion.MaterialEntregado));
+            documento.Blocks.Add(CrearBloqueTexto("DESCRIPCIÓN AVERÍA:", _reparacion.Descripcion));
             documento.Blocks.Add(CrearSeparador());
-            documento.Blocks.Add(CrearLineaInfo("LA REALIZACION DEL PRESUPUESTO EN CASO DE NO REPARAR SE COBRARAN 27.90 + IVA", string.Empty));
+            documento.Blocks.Add(CrearLineaInfo("LA REALIZACION DEL PRESUPUESTO EN CASO", string.Empty));
+            documento.Blocks.Add(CrearLineaInfo("DE NO REPARAR SE COBRARAN 27.90 + IVA", string.Empty));
             documento.Blocks.Add(CrearSeparador());
             documento.Blocks.Add(CrearLineaInfo("FIRMA", string.Empty));
 
@@ -100,7 +101,7 @@ namespace AplicacionClientesyReparaciones.Views
         private static Paragraph CrearLineaInfo(string etiqueta, string? valor)
         {
             var paragraph = new Paragraph { Margin = new Thickness(0, 0, 0, 4) };
-            paragraph.Inlines.Add(new Run($"{etiqueta}: ") { FontWeight = FontWeights.Bold });
+            paragraph.Inlines.Add(new Run($"{etiqueta} ") { FontWeight = FontWeights.Bold });
             paragraph.Inlines.Add(new Run(valor ?? string.Empty));
             return paragraph;
         }
