@@ -71,7 +71,6 @@
                             <DataTemplate>
                                 <TextBlock>
 							<Run Text="{Binding Nombre}" />
-							<Run Text="" />
 							<Run Text="{Binding Apellidos}" />
                                 </TextBlock>
                             </DataTemplate>
