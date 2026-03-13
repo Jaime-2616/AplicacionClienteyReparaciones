@@ -10,7 +10,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ApplicationDefinition Remove="App.xaml" />
     <ApplicationDefinition Include="App.xaml" />
   </ItemGroup>
 

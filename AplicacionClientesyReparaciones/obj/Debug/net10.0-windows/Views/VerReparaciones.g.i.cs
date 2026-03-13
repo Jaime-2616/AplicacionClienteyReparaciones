@@ -68,7 +68,7 @@ namespace AplicacionClientesyReparaciones.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/AplicacionClientesyReparaciones;V1.0.0.0;component/views/verreparaciones.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/AplicacionClientesyReparaciones;component/views/verreparaciones.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\VerReparaciones.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

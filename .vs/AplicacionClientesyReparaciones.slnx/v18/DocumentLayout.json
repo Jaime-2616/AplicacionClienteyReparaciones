@@ -115,12 +115,12 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AplicacionClientesyReparaciones",
+              "Title": "AplicacionClientesyReparaciones.csproj",
               "DocumentMoniker": "C:\\Users\\Pc\\Desktop\\Practicas\\AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones.csproj",
               "RelativeDocumentMoniker": "AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones.csproj",
               "ToolTip": "C:\\Users\\Pc\\Desktop\\Practicas\\AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones.csproj",
               "RelativeToolTip": "AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2026-03-13T11:35:08.797Z",
               "EditorCaption": ""
@@ -134,8 +134,7 @@
               "ToolTip": "C:\\Users\\Pc\\Desktop\\Practicas\\AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones\\Views\\CrearReparacion.xaml",
               "RelativeToolTip": "AplicacionClientesyReparaciones\\Views\\CrearReparacion.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-03-06T11:03:51.052Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-06T11:03:51.052Z"
             },
             {
               "$type": "Document",
@@ -146,8 +145,7 @@
               "ToolTip": "C:\\Users\\Pc\\Desktop\\Practicas\\AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones\\Views\\AgregarCliente.xaml",
               "RelativeToolTip": "AplicacionClientesyReparaciones\\Views\\AgregarCliente.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-03-09T09:47:36.542Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-09T09:47:36.542Z"
             },
             {
               "$type": "Document",
@@ -158,8 +156,7 @@
               "ToolTip": "C:\\Users\\Pc\\Desktop\\Practicas\\AplicacionClientesyReparaciones\\AplicacionClientesyReparaciones\\Views\\VerReparaciones.xaml",
               "RelativeToolTip": "AplicacionClientesyReparaciones\\Views\\VerReparaciones.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-03-06T11:03:08.94Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-06T11:03:08.94Z"
             },
             {
               "$type": "Document",

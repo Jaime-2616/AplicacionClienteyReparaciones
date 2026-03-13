@@ -132,8 +132,7 @@ namespace AplicacionClientesyReparaciones.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/AplicacionClientesyReparaciones;V1.0.0.0;component/views/detalleclientewindow.xa" +
-                    "ml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/AplicacionClientesyReparaciones;component/views/detalleclientewindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\DetalleClienteWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
