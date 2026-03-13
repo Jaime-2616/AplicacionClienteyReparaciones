@@ -42,7 +42,7 @@
 
             <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="0,8,0,0" VerticalAlignment="Center">
                 <TextBlock Text="Estado:" Margin="0,0,8,0" VerticalAlignment="Center" />
-                <ComboBox x:Name="EstadoFilterComboBox" Width="160" SelectionChanged="EstadoFilterComboBox_SelectionChanged">
+                <ComboBox x:Name="EstadoFilterComboBox" Width="160" Height="20" SelectionChanged="EstadoFilterComboBox_SelectionChanged">
                     <ComboBoxItem Content="Todas" />
                     <ComboBoxItem Content="Pendiente" />
                     <ComboBoxItem Content="En proceso" />
