@@ -15,7 +15,6 @@ namespace AplicacionClientesyReparaciones.Views
 		{
 			InitializeComponent();
 		}
-
 		private void Salir(object sender, RoutedEventArgs e)
 		{
 			var ventana = Window.GetWindow(this);
@@ -24,15 +23,56 @@ namespace AplicacionClientesyReparaciones.Views
 
 		private async void Guardar_Click(object sender, RoutedEventArgs e)
 		{
-			// Validar DNI: exactamente 9 caracteres
+			var nombre = NombreTextBox.Text.Trim();
+			if (string.IsNullOrWhiteSpace(nombre))
+			{
+				MessageBox.Show("El nombre es obligatorio.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
+				return;
+			}
+
+			var apellidos = ApellidosTextBox.Text.Trim();
+			if (string.IsNullOrWhiteSpace(apellidos))
+			{
+				MessageBox.Show("Los apellidos son obligatorios.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
+				return;
+			}
+
 			var dni = DniTextBox.Text.Trim();
+			if (string.IsNullOrWhiteSpace(dni))
+			{
+				MessageBox.Show("El DNI es obligatorio.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
+				return;
+			}
 			if (dni.Length != 9)
 			{
 				MessageBox.Show("El DNI debe tener 9 caracteres.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
 				return;
 			}
 
-			// Validar email con un patrón sencillo de correo electrónico
+			var telefono1Texto = Telefono1TextBox.Text.Trim();
+			if (string.IsNullOrWhiteSpace(telefono1Texto))
+			{
+				MessageBox.Show("El teléfono 1 es obligatorio.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
+				return;
+			}
+			if (!long.TryParse(telefono1Texto, out var telefono1))
+			{
+				MessageBox.Show("El teléfono 1 debe contener solo números.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
+				return;
+			}
+
+			var telefono2Texto = Telefono2TextBox.Text.Trim();
+			long? telefono2 = null;
+			if (!string.IsNullOrWhiteSpace(telefono2Texto))
+			{
+				if (!long.TryParse(telefono2Texto, out var telefono2Parseado))
+				{
+					MessageBox.Show("El teléfono 2 debe contener solo números.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
+					return;
+				}
+				telefono2 = telefono2Parseado;
+			}
+
 			var email = EmailTextBox.Text.Trim();
 			var patronEmail = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
 			if (string.IsNullOrWhiteSpace(email) || !Regex.IsMatch(email, patronEmail))
@@ -41,21 +81,41 @@ namespace AplicacionClientesyReparaciones.Views
 				return;
 			}
 
-			var telefono1Valido = long.TryParse(Telefono1TextBox.Text, out var telefono1);
-			var telefono2Valido = long.TryParse(Telefono2TextBox.Text, out var telefono2);
+			var direccion = DireccionTextBox.Text.Trim();
+			if (string.IsNullOrWhiteSpace(direccion))
+			{
+				MessageBox.Show("La dirección es obligatoria.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
+				return;
+			}
+
+			var poblacion = PoblacionTextBox.Text.Trim();
+			if (string.IsNullOrWhiteSpace(poblacion))
+			{
+				MessageBox.Show("La población es obligatoria.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
+				return;
+			}
+
+			var provincia = ProvinciaTextBox.Text.Trim();
+			if (string.IsNullOrWhiteSpace(provincia))
+			{
+				MessageBox.Show("La provincia es obligatoria.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
+				return;
+			}
+
+			var observaciones = ObservacionesTextBox.Text.Trim();
 
 			var cliente = new Cliente
 			{
-				Nombre = NombreTextBox.Text,
+				Nombre = nombre,
 				Dni = dni,
-				Apellidos = ApellidosTextBox.Text,
-				Telefono1 = telefono1Valido ? telefono1 : null,
-				Telefono2 = telefono2Valido ? telefono2 : null,
+				Apellidos = apellidos,
+				Telefono1 = telefono1,
+				Telefono2 = telefono2,
 				Email = email,
-				Direccion = DireccionTextBox.Text,
-				Poblacion = PoblacionTextBox.Text,
-				Provincia = ProvinciaTextBox.Text,
-				Observaciones = ObservacionesTextBox.Text
+				Direccion = direccion,
+				Poblacion = poblacion,
+				Provincia = provincia,
+				Observaciones = observaciones
 			};
 
 			try

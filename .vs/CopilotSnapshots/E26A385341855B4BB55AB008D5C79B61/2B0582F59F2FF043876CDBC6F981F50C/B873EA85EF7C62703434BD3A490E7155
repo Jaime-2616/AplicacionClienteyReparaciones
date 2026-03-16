@@ -1,0 +1,70 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Windows;
+using System.Windows.Controls;
+using AplicacionClientesyReparaciones.Models;
+using AplicacionClientesyReparaciones;
+
+namespace AplicacionClientesyReparaciones.Views
+{
+	public partial class AgregarCliente : UserControl
+	{
+		public AgregarCliente()
+		{
+			InitializeComponent();
+		}
+		private void Salir(object sender, RoutedEventArgs e)
+		{
+			var ventana = Window.GetWindow(this);
+			ventana?.Close();
+		}
+
+		private async void Guardar_Click(object sender, RoutedEventArgs e)
+		{
+			var dni = DniTextBox.Text.Trim();
+			if (dni.Length != 9)
+			{
+				MessageBox.Show("El DNI debe tener 9 caracteres.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
+				return;
+			}
+			var email = EmailTextBox.Text.Trim();
+			var patronEmail = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+			if (string.IsNullOrWhiteSpace(email) || !Regex.IsMatch(email, patronEmail))
+			{
+				MessageBox.Show("El email no es válido.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
+				return;
+			}
+
+			var telefono1Valido = long.TryParse(Telefono1TextBox.Text, out var telefono1);
+			var telefono2Valido = long.TryParse(Telefono2TextBox.Text, out var telefono2);
+
+			var cliente = new Cliente
+			{
+				Nombre = NombreTextBox.Text,
+				Dni = dni,
+				Apellidos = ApellidosTextBox.Text,
+				Telefono1 = telefono1Valido ? telefono1 : null,
+				Telefono2 = telefono2Valido ? telefono2 : null,
+				Email = email,
+				Direccion = DireccionTextBox.Text,
+				Poblacion = PoblacionTextBox.Text,
+				Provincia = ProvinciaTextBox.Text,
+				Observaciones = ObservacionesTextBox.Text
+			};
+
+			try
+			{
+				var client = await SupabaseService.GetClientAsync();
+				await client.From<Cliente>().Insert(cliente);
+				var ventana = Window.GetWindow(this);
+				ventana?.Close();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show($"Error al guardar el cliente: {ex.Message}", "Supabase", MessageBoxButton.OK, MessageBoxImage.Error);
+			}
+		}
+	}
+}
