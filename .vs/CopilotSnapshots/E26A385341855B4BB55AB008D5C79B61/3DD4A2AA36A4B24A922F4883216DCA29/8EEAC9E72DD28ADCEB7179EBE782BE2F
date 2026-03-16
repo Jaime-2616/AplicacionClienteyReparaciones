@@ -79,54 +79,26 @@ namespace AplicacionClientesyReparaciones.Views
 
         private async void Guardar_Click(object sender, RoutedEventArgs e)
         {
+            var telefonoValido = long.TryParse(Telefono1TextBox.Text, out var telefono1);
             var clienteSeleccionado = ClientesComboBox.SelectedItem as Cliente;
 
-            if (clienteSeleccionado == null)
-            {
-                MessageBox.Show("Debe seleccionar un cliente.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
+            DateOnly? fechaEntrega = null;
 
-            if (string.IsNullOrWhiteSpace(Telefono1TextBox.Text))
+            if (FechaEntregaDatePicker.SelectedDate.HasValue)
             {
-                MessageBox.Show("El campo 'Móvil 1' es obligatorio.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
+                fechaEntrega = DateOnly.FromDateTime(
+                    FechaEntregaDatePicker.SelectedDate.Value
+                );
             }
-
-            if (!long.TryParse(Telefono1TextBox.Text, out var telefono1))
-            {
-                MessageBox.Show("El campo 'Móvil 1' debe contener solo números.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
-            if (!FechaEntregaDatePicker.SelectedDate.HasValue)
-            {
-                MessageBox.Show("Debe seleccionar una fecha de entrega.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(MaterialEntregadoTextBox.Text))
-            {
-                MessageBox.Show("El campo 'Material entregado' es obligatorio.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(DescripcionTextBox.Text))
-            {
-                MessageBox.Show("El campo 'Descripción' es obligatorio.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
-            var fechaEntrega = DateOnly.FromDateTime(FechaEntregaDatePicker.SelectedDate.Value);
 
             var reparacion = new Reparacion
             {
-                NombreCliente = clienteSeleccionado.Nombre,
-                Telefono1 = telefono1,
+                NombreCliente = clienteSeleccionado?.Nombre ?? "",
+                Telefono1 = telefonoValido ? telefono1 : null,
                 FechaDeEntrega = fechaEntrega,
                 MaterialEntregado = MaterialEntregadoTextBox.Text,
                 Descripcion = DescripcionTextBox.Text,
-                ClienteId = clienteSeleccionado.Id,
+                ClienteId = clienteSeleccionado?.Id,
                 Estado = "Pendiente"
             };
 
