@@ -47,7 +47,7 @@
                     <DataGridTextColumn Header="DNI" Binding="{Binding Dni}" Width="*" />
                     <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="*" />
                     <DataGridTextColumn Header="Apellidos" Binding="{Binding Apellidos}" Width="*" />
-				<DataGridTextColumn Header="Teléfono 1" Binding="{Binding Telefono1}" Width="*" />
+				<DataGridTextColumn Header="Movil 1" Binding="{Binding Telefono1}" Width="*" />
 				<DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="2*" />
 			</DataGrid.Columns>
 		</DataGrid>

@@ -52,12 +52,12 @@ namespace AplicacionClientesyReparaciones.Views
 			var telefono1Texto = Telefono1TextBox.Text.Trim();
 			if (string.IsNullOrWhiteSpace(telefono1Texto))
 			{
-				MessageBox.Show("El teléfono 1 es obligatorio.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
+				MessageBox.Show("El movil 1 es obligatorio.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
 				return;
 			}
 			if (!long.TryParse(telefono1Texto, out var telefono1))
 			{
-				MessageBox.Show("El teléfono 1 debe contener solo números.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
+				MessageBox.Show("El movil 1 debe contener solo números.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
 				return;
 			}
 
@@ -67,7 +67,7 @@ namespace AplicacionClientesyReparaciones.Views
 			{
 				if (!long.TryParse(telefono2Texto, out var telefono2Parseado))
 				{
-					MessageBox.Show("El teléfono 2 debe contener solo números.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
+					MessageBox.Show("El movil 2 debe contener solo números.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
 					return;
 				}
 				telefono2 = telefono2Parseado;
@@ -124,7 +124,7 @@ namespace AplicacionClientesyReparaciones.Views
 				await client.From<Cliente>().Insert(cliente);
 				var ventana = Window.GetWindow(this);
 				ventana?.Close();
-			}
+			} 
 			catch (Exception ex)
 			{
 				MessageBox.Show($"Error al guardar el cliente: {ex.Message}", "Supabase", MessageBoxButton.OK, MessageBoxImage.Error);
