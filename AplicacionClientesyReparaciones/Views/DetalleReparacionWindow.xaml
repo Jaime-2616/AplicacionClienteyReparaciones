@@ -41,13 +41,14 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+			</Grid.RowDefinitions>
 
             <TextBlock Grid.Row="0" Grid.Column="0" Text="Cliente:" Margin="0,0,10,5" />
             <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding NombreCliente}" IsReadOnly="True" Margin="0,0,0,5" />
@@ -72,6 +73,9 @@
                 <ComboBoxItem Content="En proceso" />
                 <ComboBoxItem Content="Finalizada" />
             </ComboBox>
+
+			<TextBlock Grid.Row="6" Grid.Column="0" Text="Precio:" Margin="0,0,10,5" />
+			<TextBox Grid.Row="6" Grid.Column="1" Text="{Binding Precio, StringFormat={}{0:F2} €}" IsReadOnly="True" Margin="0,0,0,5" />
         </Grid>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,16,0,0">

@@ -90,6 +90,11 @@ namespace AplicacionClientesyReparaciones.Views
             documento.Blocks.Add(CrearBloqueTexto("MATERIAL ENTREGADO:", _reparacion.MaterialEntregado?.ToUpper()));
             documento.Blocks.Add(CrearBloqueTexto("DESCRIPCIÓN AVERÍA:", _reparacion.Descripcion?.ToUpper()));
             documento.Blocks.Add(CrearSeparador());
+            var precioTexto = _reparacion.Precio.HasValue
+                ? string.Format("{0:F2} €", _reparacion.Precio.Value)
+                : string.Empty;
+            documento.Blocks.Add(CrearLineaInfo("PRECIO:", precioTexto));
+            documento.Blocks.Add(CrearSeparador());
             documento.Blocks.Add(CrearLineaInfo("LA REALIZACION DEL PRESUPUESTO EN CASO", string.Empty));
             documento.Blocks.Add(CrearLineaInfo("DE NO REPARAR SE COBRARAN 27.90 + IVA", string.Empty));
             documento.Blocks.Add(CrearSeparador());

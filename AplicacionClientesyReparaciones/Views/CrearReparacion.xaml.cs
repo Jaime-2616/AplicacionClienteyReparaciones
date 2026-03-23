@@ -117,6 +117,18 @@ namespace AplicacionClientesyReparaciones.Views
                 return;
             }
 
+            if (string.IsNullOrWhiteSpace(PrecioTextBox.Text))
+            {
+                MessageBox.Show("El campo 'Precio' es obligatorio.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (!decimal.TryParse(PrecioTextBox.Text, out var precio))
+            {
+                MessageBox.Show("El campo 'Precio' debe ser numérico.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
             var fechaEntrega = DateOnly.FromDateTime(FechaEntregaDatePicker.SelectedDate.Value);
 
             var reparacion = new Reparacion
@@ -127,7 +139,8 @@ namespace AplicacionClientesyReparaciones.Views
                 MaterialEntregado = MaterialEntregadoTextBox.Text,
                 Descripcion = DescripcionTextBox.Text,
                 ClienteId = clienteSeleccionado.Id,
-                Estado = "Pendiente"
+                Estado = "Pendiente",
+                Precio = precio
             };
 
             try

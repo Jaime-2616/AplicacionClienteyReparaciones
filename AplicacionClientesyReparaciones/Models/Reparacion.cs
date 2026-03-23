@@ -30,5 +30,8 @@ namespace AplicacionClientesyReparaciones.Models
 
         [Column("estado")]
         public string? Estado { get; set; }
+
+		[Column("Precio")]
+		public decimal? Precio { get; set; }
     }
 }
