@@ -10,20 +10,17 @@ namespace AplicacionClientesyReparaciones.Views
     public partial class CrearReparacion : UserControl
     {
         private List<Cliente> _clientes = new();
-
         public CrearReparacion()
         {
             InitializeComponent();
             FechaEntregaDatePicker.SelectedDate = DateTime.Now.Date;
             Loaded += CrearReparacion_Loaded;
         }
-
         private void Salir(object sender, RoutedEventArgs e)
         {
             var ventana = Window.GetWindow(this);
             ventana?.Close();
         }
-
         private async void NuevoCliente_Click(object sender, RoutedEventArgs e)
         {
             var contenido = new AgregarCliente();
@@ -40,12 +37,10 @@ namespace AplicacionClientesyReparaciones.Views
             ventana.ShowDialog();
             await CargarClientesAsync();
         }
-
         private async void CrearReparacion_Loaded(object sender, RoutedEventArgs e)
         {
             await CargarClientesAsync();
         }
-
         private async System.Threading.Tasks.Task CargarClientesAsync()
         {
             try
@@ -64,7 +59,6 @@ namespace AplicacionClientesyReparaciones.Views
                     MessageBoxImage.Error);
             }
         }
-
         private void ClientesComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (ClientesComboBox.SelectedItem is Cliente clienteSeleccionado)
@@ -76,7 +70,6 @@ namespace AplicacionClientesyReparaciones.Views
                 Telefono1TextBox.Text = "";
             }
         }
-
         private async void Guardar_Click(object sender, RoutedEventArgs e)
         {
             var clienteSeleccionado = ClientesComboBox.SelectedItem as Cliente;
@@ -162,7 +155,6 @@ namespace AplicacionClientesyReparaciones.Views
                     MessageBoxImage.Error);
             }
         }
-
         private void DescripcionTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 

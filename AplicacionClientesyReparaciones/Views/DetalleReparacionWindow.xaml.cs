@@ -96,13 +96,12 @@ namespace AplicacionClientesyReparaciones.Views
             documento.Blocks.Add(CrearLineaInfo("PRECIO:", precioTexto));
             documento.Blocks.Add(CrearSeparador());
             documento.Blocks.Add(CrearLineaInfo("LA REALIZACION DEL PRESUPUESTO EN CASO", string.Empty));
-            documento.Blocks.Add(CrearLineaInfo("DE NO REPARAR SE COBRARAN 27.90 + IVA", string.Empty));
+            documento.Blocks.Add(CrearLineaInfo("DE NO REPARAR SE COBRARAN 27.90€ + IVA", string.Empty));
             documento.Blocks.Add(CrearSeparador());
             documento.Blocks.Add(CrearLineaInfo("FIRMA", string.Empty));
 
             return documento;
         }
-
         private static Paragraph CrearLineaInfo(string etiqueta, string? valor)
         {
             var paragraph = new Paragraph { Margin = new Thickness(0, 0, 0, 4) };
@@ -110,7 +109,6 @@ namespace AplicacionClientesyReparaciones.Views
             paragraph.Inlines.Add(new Run(valor ?? string.Empty));
             return paragraph;
         }
-
         private static Paragraph CrearBloqueTexto(string etiqueta, string? valor)
         {
             var paragraph = new Paragraph { Margin = new Thickness(0, 6, 0, 6) };
@@ -119,7 +117,6 @@ namespace AplicacionClientesyReparaciones.Views
             paragraph.Inlines.Add(new Run(valor ?? string.Empty));
             return paragraph;
         }
-
         private static Paragraph CrearSeparador()
         {
             return new Paragraph(new Run(new string('_', 60))) { Margin = new Thickness(0, 6, 0, 6) };
