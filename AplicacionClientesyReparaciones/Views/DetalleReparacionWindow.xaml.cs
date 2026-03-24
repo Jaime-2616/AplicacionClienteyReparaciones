@@ -42,84 +42,110 @@ namespace AplicacionClientesyReparaciones.Views
         private void Imprimir_Click(object sender, RoutedEventArgs e)
         {
             var printDialog = new PrintDialog();
-            if (printDialog.ShowDialog() != true)
-            {
-                return;
-            }
+            if (printDialog.ShowDialog() != true) return;
 
             var documento = CrearDocumentoImpresion();
-            documento.PageHeight = printDialog.PrintableAreaHeight;
-            documento.PageWidth = printDialog.PrintableAreaWidth;
-            documento.ColumnWidth = printDialog.PrintableAreaWidth;
+            documento.PageWidth = 624;
+            documento.ColumnWidth = 624;
 
-            printDialog.PrintDocument(((IDocumentPaginatorSource)documento).DocumentPaginator, "Detalle de reparación");
+            printDialog.PrintDocument(((IDocumentPaginatorSource)documento).DocumentPaginator, "Ticket reparación");
         }
 
         private FlowDocument CrearDocumentoImpresion()
         {
             var documento = new FlowDocument
             {
-                PagePadding = new Thickness(40),
-                FontFamily = new FontFamily("Segoe UI"),
-                FontSize = 12
+                PagePadding = new Thickness(20),
+                FontFamily = new FontFamily("Consolas"),
+                FontSize = 10,
+                PageWidth = 624,
+                ColumnWidth = 624
             };
+
             var encabezado = new Paragraph
             {
                 FontWeight = FontWeights.Bold,
-                Margin = new Thickness(0, 0, 0, 12)
+                Margin = new Thickness(0, 0, 0, 6),
+                TextAlignment = TextAlignment.Left
             };
-            encabezado.Inlines.Add(new Run("GRUPO PCBYTE"));
-            encabezado.Inlines.Add(new LineBreak());
-            encabezado.Inlines.Add(new Run("NIF/CIF:34103929D"));
-            encabezado.Inlines.Add(new LineBreak());
-            encabezado.Inlines.Add(new Run("PLAZA SAGASTIEDER N11 BAJO"));
-            encabezado.Inlines.Add(new LineBreak());
-            encabezado.Inlines.Add(new Run("DONOSTIA"));
-            encabezado.Inlines.Add(new LineBreak());
-            encabezado.Inlines.Add(new Run("20015-GIPUZKOA"));
-            encabezado.Inlines.Add(new LineBreak());
-            encabezado.Inlines.Add(new Run("943321439"));
+
+            encabezado.Inlines.Add(new Run("GRUPO PCBYTE\n"));
+            encabezado.Inlines.Add(new Run("NIF/CIF: 34103929D\n"));
+            encabezado.Inlines.Add(new Run("PLAZA SAGASTIEDER N11 BAJO\n"));
+            encabezado.Inlines.Add(new Run("DONOSTIA\n"));
+            encabezado.Inlines.Add(new Run("20015 - GIPUZKOA\n"));
+            encabezado.Inlines.Add(new Run("943321439\n"));
+
             documento.Blocks.Add(encabezado);
 
-            documento.Blocks.Add(CrearLineaInfo("CLIENTE:", _reparacion.NombreCliente?.ToUpper()));
-            documento.Blocks.Add(CrearLineaInfo("MOVIL:", _reparacion.Telefono1?.ToString()));
             documento.Blocks.Add(CrearSeparador());
-            documento.Blocks.Add(CrearLineaInfo("REPARACIÓN:", _reparacion.Id.ToString()));
-            documento.Blocks.Add(CrearLineaInfo("FECHA:", _reparacion.FechaDeEntrega?.ToString("dd/MM/yyyy")));
+            documento.Blocks.Add(CrearLineaInfo("CLIENTE", _reparacion.NombreCliente?.ToUpper()));
+            documento.Blocks.Add(CrearLineaInfo("MOVIL", _reparacion.Telefono1?.ToString()));
+
             documento.Blocks.Add(CrearSeparador());
-            documento.Blocks.Add(CrearBloqueTexto("MATERIAL ENTREGADO:", _reparacion.MaterialEntregado?.ToUpper()));
-            documento.Blocks.Add(CrearBloqueTexto("DESCRIPCIÓN AVERÍA:", _reparacion.Descripcion?.ToUpper()));
+
+            documento.Blocks.Add(CrearLineaInfo("REPARACION", _reparacion.Id.ToString()));
+            documento.Blocks.Add(CrearLineaInfo("FECHA", _reparacion.FechaDeEntrega?.ToString("dd/MM/yyyy")));
+
             documento.Blocks.Add(CrearSeparador());
+
+            documento.Blocks.Add(CrearBloqueTexto("MATERIAL ENTREGADO", _reparacion.MaterialEntregado?.ToUpper()));
+            documento.Blocks.Add(CrearBloqueTexto("DESCRIPCION AVERIA", _reparacion.Descripcion?.ToUpper()));
+
+            documento.Blocks.Add(CrearSeparador());
+
             var precioTexto = _reparacion.Precio.HasValue
                 ? string.Format("{0:F2} €", _reparacion.Precio.Value)
-                : string.Empty;
-            documento.Blocks.Add(CrearLineaInfo("PRECIO:", precioTexto));
+                : "";
+
+            documento.Blocks.Add(CrearLineaPrecio("PRECIO", precioTexto));
+
             documento.Blocks.Add(CrearSeparador());
-            documento.Blocks.Add(CrearLineaInfo("LA REALIZACION DEL PRESUPUESTO EN CASO", string.Empty));
-            documento.Blocks.Add(CrearLineaInfo("DE NO REPARAR SE COBRARAN 27.90€ + IVA", string.Empty));
+
+            documento.Blocks.Add(CrearLineaInfo("", "LA REALIZACION DEL PRESUPUESTO EN CASO"));
+            documento.Blocks.Add(CrearLineaInfo("", "DE NO REPARARSE COBRARAN 27.90€ + IVA"));
+
             documento.Blocks.Add(CrearSeparador());
-            documento.Blocks.Add(CrearLineaInfo("FIRMA", string.Empty));
+
+            documento.Blocks.Add(CrearLineaInfo("FIRMA", ""));
 
             return documento;
         }
+
         private static Paragraph CrearLineaInfo(string etiqueta, string? valor)
         {
-            var paragraph = new Paragraph { Margin = new Thickness(0, 0, 0, 4) };
-            paragraph.Inlines.Add(new Run($"{etiqueta} ") { FontWeight = FontWeights.Bold });
-            paragraph.Inlines.Add(new Run(valor ?? string.Empty));
+            var paragraph = new Paragraph { Margin = new Thickness(0, 2, 0, 2) };
+
+            if (!string.IsNullOrWhiteSpace(etiqueta))
+            {
+                paragraph.Inlines.Add(new Run($"{etiqueta}: ") { FontWeight = FontWeights.Bold });
+            }
+            paragraph.Inlines.Add(new Run(valor ?? ""));
+            paragraph.TextAlignment = TextAlignment.Left;
+
             return paragraph;
         }
+
+        private static Paragraph CrearLineaPrecio(string etiqueta, string valor)
+        {
+            var paragraph = new Paragraph { Margin = new Thickness(0, 4, 0, 4) };
+            paragraph.Inlines.Add(new Run($"{etiqueta}: {valor}") { FontWeight = FontWeights.Bold });
+            paragraph.TextAlignment = TextAlignment.Left;
+            return paragraph;
+        }
+
         private static Paragraph CrearBloqueTexto(string etiqueta, string? valor)
         {
-            var paragraph = new Paragraph { Margin = new Thickness(0, 6, 0, 6) };
-            paragraph.Inlines.Add(new Run(etiqueta) { FontWeight = FontWeights.Bold });
-            paragraph.Inlines.Add(new LineBreak());
-            paragraph.Inlines.Add(new Run(valor ?? string.Empty));
+            var paragraph = new Paragraph { Margin = new Thickness(0, 4, 0, 4) };
+            paragraph.Inlines.Add(new Run($"{etiqueta}:\n") { FontWeight = FontWeights.Bold });
+            paragraph.Inlines.Add(new Run(valor ?? ""));
+            paragraph.TextAlignment = TextAlignment.Left;
             return paragraph;
         }
+
         private static Paragraph CrearSeparador()
         {
-            return new Paragraph(new Run(new string('_', 60))) { Margin = new Thickness(0, 6, 0, 6) };
+            return new Paragraph(new Run(new string('-', 80))) { Margin = new Thickness(0, 4, 0, 4), TextAlignment = TextAlignment.Left };
         }
     }
 }
