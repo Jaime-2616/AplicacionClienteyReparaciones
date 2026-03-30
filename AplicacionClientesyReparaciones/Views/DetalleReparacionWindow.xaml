@@ -75,7 +75,11 @@
             </ComboBox>
 
 			<TextBlock Grid.Row="6" Grid.Column="0" Text="Precio:" Margin="0,0,10,5" />
-			<TextBox Grid.Row="6" Grid.Column="1" Text="{Binding Precio, StringFormat={}{0:F2} €}" IsReadOnly="True" Margin="0,0,0,5" />
+			<StackPanel Grid.Row="6" Grid.Column="1" Orientation="Horizontal" Margin="0,0,0,5">
+				<TextBox x:Name="PrecioTextBox"
+                     Width="100" />
+				<TextBlock Text=" €" VerticalAlignment="Center" Margin="4,0,0,0" />
+			</StackPanel>
         </Grid>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,16,0,0">

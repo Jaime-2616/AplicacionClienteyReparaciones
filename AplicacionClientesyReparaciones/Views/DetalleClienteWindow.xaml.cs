@@ -23,7 +23,6 @@ namespace AplicacionClientesyReparaciones.Views
                 MessageBox.Show("El teléfono debe ser numérico.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
-
             _cliente.Nombre = NombreTextBox.Text;
             _cliente.Apellidos = ApellidosTextBox.Text;
             _cliente.Dni = DniTextBox.Text;
@@ -34,7 +33,6 @@ namespace AplicacionClientesyReparaciones.Views
             _cliente.Poblacion = PoblacionTextBox.Text;
             _cliente.Provincia = ProvinciaTextBox.Text;
             _cliente.Observaciones = ObservacionesTextBox.Text;
-
             try
             {
                 var client = await SupabaseService.GetClientAsync();
@@ -46,7 +44,6 @@ namespace AplicacionClientesyReparaciones.Views
                 MessageBox.Show($"Error al actualizar el cliente: {ex.Message}", "Supabase", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
         private static bool TryGetTelefono(string value, out long? telefono)
         {
             if (string.IsNullOrWhiteSpace(value))

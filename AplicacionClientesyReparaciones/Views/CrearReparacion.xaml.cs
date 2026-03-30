@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Windows.Controls;
 using AplicacionClientesyReparaciones.Models;
 using AplicacionClientesyReparaciones;
+using System.Globalization;
 
 namespace AplicacionClientesyReparaciones.Views
 {
@@ -110,16 +111,25 @@ namespace AplicacionClientesyReparaciones.Views
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(PrecioTextBox.Text))
+            // El campo Precio es opcional: solo se valida si tiene contenido
+            decimal? precio = null;
+            var precioTexto = PrecioTextBox.Text?.Trim();
+            if (!string.IsNullOrWhiteSpace(precioTexto))
             {
-                MessageBox.Show("El campo 'Precio' es obligatorio.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
-            if (!decimal.TryParse(PrecioTextBox.Text, out var precio))
-            {
-                MessageBox.Show("El campo 'Precio' debe ser numérico.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
+                var estilos = NumberStyles.Number;
+                var culturaActual = CultureInfo.CurrentCulture;
+                var textoNormalizado = precioTexto.Replace(',', culturaActual.NumberFormat.NumberDecimalSeparator[0]);
+                decimal precioParsed;
+                if (!decimal.TryParse(textoNormalizado, estilos, culturaActual, out precioParsed))
+                {
+                    var textoPunto = precioTexto.Replace(',', '.');
+                    if (!decimal.TryParse(textoPunto, estilos, CultureInfo.InvariantCulture, out precioParsed))
+                    {
+                        MessageBox.Show("El campo 'Precio' debe ser numérico (use coma o punto como separador decimal).", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        return;
+                    }
+                }
+                precio = precioParsed;
             }
 
             var fechaEntrega = DateOnly.FromDateTime(FechaEntregaDatePicker.SelectedDate.Value);

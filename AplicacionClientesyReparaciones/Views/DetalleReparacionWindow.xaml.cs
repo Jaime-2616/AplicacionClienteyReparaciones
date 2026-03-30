@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
+using System.Globalization;
 using AplicacionClientesyReparaciones.Models;
 using AplicacionClientesyReparaciones;
 
@@ -17,6 +18,12 @@ namespace AplicacionClientesyReparaciones.Views
             InitializeComponent();
             _reparacion = reparacion;
             DataContext = reparacion;
+
+			// Inicializar el cuadro de texto de precio con el valor existente usando el formato de la cultura actual
+			if (FindName("PrecioTextBox") is TextBox precioTextBox && _reparacion.Precio.HasValue)
+			{
+				precioTextBox.Text = _reparacion.Precio.Value.ToString("0.##", CultureInfo.CurrentCulture);
+			}
         }
 
         private async void GuardarEstado_Click(object sender, RoutedEventArgs e)
@@ -26,6 +33,31 @@ namespace AplicacionClientesyReparaciones.Views
                 return;
 
             _reparacion.Estado = estadoSeleccionado;
+
+			// Validar y actualizar el precio si se ha modificado en la vista de detalle
+			if (FindName("PrecioTextBox") is TextBox precioTextBox)
+			{
+				var precioTexto = precioTextBox.Text?.Trim();
+				if (!string.IsNullOrWhiteSpace(precioTexto))
+				{
+					decimal precio;
+					// Aceptar tanto coma como punto como separador decimal
+					var estilos = NumberStyles.Number;
+					var culturaActual = CultureInfo.CurrentCulture;
+					var textoNormalizado = precioTexto.Replace(',', culturaActual.NumberFormat.NumberDecimalSeparator[0]);
+					if (!decimal.TryParse(textoNormalizado, estilos, culturaActual, out precio))
+					{
+						// Intento adicional con punto como separador decimal invariante
+						var textoPunto = precioTexto.Replace(',', '.');
+						if (!decimal.TryParse(textoPunto, estilos, CultureInfo.InvariantCulture, out precio))
+						{
+							MessageBox.Show("El campo 'Precio' debe ser numérico (use coma o punto como separador decimal).", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
+							return;
+						}
+					}
+					_reparacion.Precio = precio;
+				}
+			}
 
             try
             {
@@ -111,7 +143,7 @@ namespace AplicacionClientesyReparaciones.Views
 
             return documento;
         }
-
+            
         private static Paragraph CrearLineaInfo(string etiqueta, string? valor)
         {
             var paragraph = new Paragraph { Margin = new Thickness(0, 2, 0, 2) };
