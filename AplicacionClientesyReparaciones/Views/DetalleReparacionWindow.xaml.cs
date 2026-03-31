@@ -130,7 +130,7 @@ namespace AplicacionClientesyReparaciones.Views
                 ? string.Format("{0:F2} €", _reparacion.Precio.Value)
                 : "";
 
-            documento.Blocks.Add(CrearLineaPrecio("PRECIO", precioTexto));
+            documento.Blocks.Add(CrearLineaPrecio("TOTAL", precioTexto));
 
             documento.Blocks.Add(CrearSeparador());
 

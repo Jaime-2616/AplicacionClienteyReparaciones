@@ -135,8 +135,7 @@ namespace AplicacionClientesyReparaciones.Views
 
             var reparacion = new Reparacion
             {
-				// Guardamos nombre y apellidos juntos para mostrarlos en el listado de reparaciones
-				NombreCliente = $"{clienteSeleccionado.Nombre} {clienteSeleccionado.Apellidos}",
+                NombreCliente = clienteSeleccionado.Nombre,
                 Telefono1 = telefono1,
                 FechaDeEntrega = fechaEntrega,
                 MaterialEntregado = MaterialEntregadoTextBox.Text,
