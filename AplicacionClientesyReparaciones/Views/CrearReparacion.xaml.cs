@@ -16,7 +16,7 @@ namespace AplicacionClientesyReparaciones.Views
             InitializeComponent();
             FechaEntregaDatePicker.SelectedDate = DateTime.Now.Date;
             Loaded += CrearReparacion_Loaded;
-        }
+        }   
         private void Salir(object sender, RoutedEventArgs e)
         {
             var ventana = Window.GetWindow(this);
@@ -135,7 +135,6 @@ namespace AplicacionClientesyReparaciones.Views
 
             var reparacion = new Reparacion
             {
-				// Guardamos nombre y apellidos juntos para mostrarlos en el listado de reparaciones
 				NombreCliente = $"{clienteSeleccionado.Nombre} {clienteSeleccionado.Apellidos}",
                 Telefono1 = telefono1,
                 FechaDeEntrega = fechaEntrega,
