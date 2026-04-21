@@ -63,7 +63,7 @@ namespace AplicacionClientesyReparaciones.Views
             {
                 MessageBox.Show($"Error al actualizar el estado: {ex.Message}", "Supabase", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-		}
+        }
 
         private void Imprimir_Click(object sender, RoutedEventArgs e)
         {
@@ -77,7 +77,7 @@ namespace AplicacionClientesyReparaciones.Views
             printDialog.PrintDocument(((IDocumentPaginatorSource)documento).DocumentPaginator, "Ticket reparación");
         }
 
-        private FlowDocument CrearDocumentoImpresion()
+        private FlowDocument CrearDocumentoImpresion()  
         {
             var documento = new FlowDocument
             {
@@ -101,7 +101,7 @@ namespace AplicacionClientesyReparaciones.Views
             encabezado.Inlines.Add(new Run("DONOSTIA\n"));
             encabezado.Inlines.Add(new Run("20015 - GIPUZKOA\n"));
             encabezado.Inlines.Add(new Run("943321439\n"));
-
+    
             documento.Blocks.Add(encabezado);
 
             documento.Blocks.Add(CrearSeparador());
@@ -124,10 +124,9 @@ namespace AplicacionClientesyReparaciones.Views
             {
                 var precioTexto = string.Format("{0:F2} €", _reparacion.Precio.Value);
                 documento.Blocks.Add(CrearLineaPrecio("TOTAL", precioTexto));
+                documento.Blocks.Add(CrearSeparador());
             }
-
-            documento.Blocks.Add(CrearSeparador());
-            
+           
             documento.Blocks.Add(CrearLineaInfo("", "LA REALIZACION DEL PRESUPUESTO EN CASO"));
             documento.Blocks.Add(CrearLineaInfo("", "DE NO REPARARSE COBRARAN 27.90€ + IVA"));
 
