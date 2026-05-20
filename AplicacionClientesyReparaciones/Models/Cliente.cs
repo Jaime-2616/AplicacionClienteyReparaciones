@@ -38,5 +38,8 @@ namespace AplicacionClientesyReparaciones.Models
 
         [Column("observaciones")]
         public string? Observaciones { get; set; }
+
+        [Column("Codigo_postal")]
+        public string? CodigoPostal { get; set; }
     }
 }

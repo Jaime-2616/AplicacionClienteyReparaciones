@@ -47,6 +47,7 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
@@ -77,11 +78,14 @@
             <TextBlock Grid.Row="8" Grid.Column="0" Text="Población:" Margin="0,0,10,5" />
             <TextBox Grid.Row="8" Grid.Column="1" x:Name="PoblacionTextBox" Text="{Binding Poblacion}" Margin="0,0,0,5" />
 
-            <TextBlock Grid.Row="9" Grid.Column="0" Text="Provincia:" Margin="0,0,10,5" />
-            <TextBox Grid.Row="9" Grid.Column="1" x:Name="ProvinciaTextBox" Text="{Binding Provincia}" Margin="0,0,0,5" />
+            <TextBlock Grid.Row="9" Grid.Column="0" Text="Código postal:" Margin="0,0,10,5" />
+            <TextBox Grid.Row="9" Grid.Column="1" x:Name="CodigoPostalTextBox" Text="{Binding CodigoPostal}" Margin="0,0,0,5" />
 
-            <TextBlock Grid.Row="10" Grid.Column="0" Text="Observaciones:" Margin="0,0,10,5" VerticalAlignment="Top" />
-            <TextBox Grid.Row="10" Grid.Column="1" x:Name="ObservacionesTextBox" Text="{Binding Observaciones}" Margin="0,0,0,5" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Height="100" VerticalContentAlignment="Top" />
+            <TextBlock Grid.Row="10" Grid.Column="0" Text="Provincia:" Margin="0,0,10,5" />
+            <TextBox Grid.Row="10" Grid.Column="1" x:Name="ProvinciaTextBox" Text="{Binding Provincia}" Margin="0,0,0,5" />
+
+            <TextBlock Grid.Row="11" Grid.Column="0" Text="Observaciones:" Margin="0,0,10,5" VerticalAlignment="Top" />
+            <TextBox Grid.Row="11" Grid.Column="1" x:Name="ObservacionesTextBox" Text="{Binding Observaciones}" Margin="0,0,0,5" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Height="100" VerticalContentAlignment="Top" />
         </Grid>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,16,0,0">

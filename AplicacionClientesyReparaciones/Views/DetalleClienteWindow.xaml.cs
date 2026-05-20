@@ -1,5 +1,6 @@
 using System;
 using System.Windows;
+using System.Windows.Controls;
 using AplicacionClientesyReparaciones.Models;
 
 namespace AplicacionClientesyReparaciones.Views
@@ -31,8 +32,10 @@ namespace AplicacionClientesyReparaciones.Views
             _cliente.Email = EmailTextBox.Text;
             _cliente.Direccion = DireccionTextBox.Text;
             _cliente.Poblacion = PoblacionTextBox.Text;
+            var codigoPostal = (FindName("CodigoPostalTextBox") as TextBox)?.Text;
             _cliente.Provincia = ProvinciaTextBox.Text;
             _cliente.Observaciones = ObservacionesTextBox.Text;
+            _cliente.CodigoPostal = string.IsNullOrWhiteSpace(codigoPostal) ? null : codigoPostal;
             try
             {
                 var client = await SupabaseService.GetClientAsync();

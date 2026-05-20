@@ -6,6 +6,7 @@ using System.Windows.Media;
 using System.Globalization;
 using AplicacionClientesyReparaciones.Models;
 using AplicacionClientesyReparaciones;
+using System.Text.Json;
 
 namespace AplicacionClientesyReparaciones.Views
 {
@@ -63,7 +64,7 @@ namespace AplicacionClientesyReparaciones.Views
             {
                 MessageBox.Show($"Error al actualizar el estado: {ex.Message}", "Supabase", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-        }
+        }   
 
         private void Imprimir_Click(object sender, RoutedEventArgs e)
         {
@@ -72,16 +73,16 @@ namespace AplicacionClientesyReparaciones.Views
 
             var documento = CrearDocumentoImpresion();
             documento.PageWidth = 624;
-            documento.ColumnWidth = 624;
+            documento.ColumnWidth = 624;    
 
             printDialog.PrintDocument(((IDocumentPaginatorSource)documento).DocumentPaginator, "Ticket reparación");
         }
-
+    
         private FlowDocument CrearDocumentoImpresion()  
         {
             var documento = new FlowDocument
             {
-                PagePadding = new Thickness(20),
+                PagePadding = new Thickness(20, 0, 20, 40),
                 FontFamily = new FontFamily("Consolas"),
                 FontSize = 10,
                 PageWidth = 624,
@@ -100,8 +101,9 @@ namespace AplicacionClientesyReparaciones.Views
             encabezado.Inlines.Add(new Run("PLAZA SAGASTIEDER N11 BAJO\n"));
             encabezado.Inlines.Add(new Run("DONOSTIA\n"));
             encabezado.Inlines.Add(new Run("20015 - GIPUZKOA\n"));
-            encabezado.Inlines.Add(new Run("943321439\n"));
-    
+            encabezado.Inlines.Add(new Run("943 32 14 39 - 673 93 78 50\n"));
+            encabezado.Inlines.Add(new Run("borja@grupopcbyte.com\n"));
+
             documento.Blocks.Add(encabezado);
 
             documento.Blocks.Add(CrearSeparador());
@@ -133,6 +135,8 @@ namespace AplicacionClientesyReparaciones.Views
             documento.Blocks.Add(CrearSeparador());
 
             documento.Blocks.Add(CrearLineaInfo("FIRMA", ""));
+            documento.Blocks.Add(new Paragraph(new Run("")));
+            documento.Blocks.Add(CrearSeparador());
 
             return documento;
         }
@@ -150,7 +154,7 @@ namespace AplicacionClientesyReparaciones.Views
 
             return paragraph;
         }
-
+   
         private static Paragraph CrearLineaPrecio(string etiqueta, string valor)
         {
             var paragraph = new Paragraph { Margin = new Thickness(0, 4, 0, 4) };
@@ -158,7 +162,7 @@ namespace AplicacionClientesyReparaciones.Views
             paragraph.TextAlignment = TextAlignment.Left;
             return paragraph;
         }
-
+        
         private static Paragraph CrearBloqueTexto(string etiqueta, string? valor)
         {
             var paragraph = new Paragraph { Margin = new Thickness(0, 4, 0, 4) };

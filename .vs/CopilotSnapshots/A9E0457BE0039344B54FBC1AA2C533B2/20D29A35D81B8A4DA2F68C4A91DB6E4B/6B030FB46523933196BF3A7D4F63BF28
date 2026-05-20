@@ -1,0 +1,67 @@
+﻿using System;
+using System.Windows;
+using AplicacionClientesyReparaciones.Models;
+
+namespace AplicacionClientesyReparaciones.Views
+{
+    public partial class DetalleClienteWindow : Window
+    {
+        private readonly Cliente _cliente;
+
+        public DetalleClienteWindow(Cliente cliente)
+        {
+            InitializeComponent();
+            _cliente = cliente;
+            DataContext = cliente;
+        }
+
+        private async void Guardar_Click(object sender, RoutedEventArgs e)
+        {
+            if (!TryGetTelefono(Telefono1TextBox.Text, out var telefono1) ||
+                !TryGetTelefono(Telefono2TextBox.Text, out var telefono2))
+            {
+                MessageBox.Show("El teléfono debe ser numérico.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+            _cliente.Nombre = NombreTextBox.Text;
+            _cliente.Apellidos = ApellidosTextBox.Text;
+            _cliente.Dni = DniTextBox.Text;
+            _cliente.Telefono1 = telefono1;
+            _cliente.Telefono2 = telefono2;
+            _cliente.Email = EmailTextBox.Text;
+            _cliente.Direccion = DireccionTextBox.Text;
+            _cliente.Poblacion = PoblacionTextBox.Text;
+            var codigoPostal = (FindName("CodigoPostalTextBox") as TextBox)?.Text;
+            _cliente.Provincia = ProvinciaTextBox.Text;
+            _cliente.Observaciones = ObservacionesTextBox.Text;
+            _cliente.CodigoPostal = string.IsNullOrWhiteSpace(codigoPostal) ? null : codigoPostal;
+            try
+            {
+                var client = await SupabaseService.GetClientAsync();
+                await client.From<Cliente>().Update(_cliente);
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al actualizar el cliente: {ex.Message}", "Supabase", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        private static bool TryGetTelefono(string value, out long? telefono)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                telefono = null;
+                return true;
+            }
+
+            if (long.TryParse(value, out var result))
+            {
+                telefono = result;
+                return true;
+            }
+
+            telefono = null;
+            return false;
+        }
+    }
+}

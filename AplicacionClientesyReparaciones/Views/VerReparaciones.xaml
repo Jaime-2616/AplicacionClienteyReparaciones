@@ -53,6 +53,7 @@
 		<DataGrid Grid.Row="1"
 			  x:Name="ReparacionesDataGrid"
 			  AutoGenerateColumns="False"
+			  RowHeight="32"
 			  AlternatingRowBackground="#F8FAFC"
 			  RowBackground="White"
 			  GridLinesVisibility="Horizontal"
@@ -65,7 +66,14 @@
 				<DataGridTextColumn Header="Cliente" Binding="{Binding NombreCliente}" Width="*" />
 				<DataGridTextColumn Header="Movil" Binding="{Binding Telefono1}" Width="*" />
 				<DataGridTextColumn Header="Material" Binding="{Binding MaterialEntregado}" Width="*" />
-				<DataGridTextColumn Header="Descripción" Binding="{Binding Descripcion}" Width="2*" />
+				<DataGridTextColumn Header="Descripción" Binding="{Binding Descripcion}" Width="2*">
+					<DataGridTextColumn.ElementStyle>
+						<Style TargetType="TextBlock">
+							<Setter Property="TextWrapping" Value="NoWrap" />
+							<Setter Property="TextTrimming" Value="CharacterEllipsis" />
+						</Style>
+					</DataGridTextColumn.ElementStyle>
+				</DataGridTextColumn>
 				<DataGridTextColumn Header="Estado" Binding="{Binding Estado}" Width="*" />
 			</DataGrid.Columns>
 		</DataGrid>

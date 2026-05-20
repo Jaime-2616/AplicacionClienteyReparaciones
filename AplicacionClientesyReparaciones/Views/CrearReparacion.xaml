@@ -59,7 +59,7 @@
 
                     <TextBlock Grid.Row="0"
 					   Grid.Column="0"
-					   Text="Nombre del Cliente:"
+					   Text="Cliente:"
 					   Margin="0,0,10,5"
 					   VerticalAlignment="Center"/>
 
