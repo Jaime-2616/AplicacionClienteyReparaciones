@@ -1,6 +1,9 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using AplicacionClientesyReparaciones.Models;
 using AplicacionClientesyReparaciones;
 
@@ -8,6 +11,8 @@ namespace AplicacionClientesyReparaciones.Views
 {
 	public partial class VerUsuarios : UserControl
     {
+        private System.Collections.Generic.List<Cliente> _clientes = new();
+
         public VerUsuarios()
         {
             InitializeComponent();
@@ -31,6 +36,7 @@ namespace AplicacionClientesyReparaciones.Views
 
 		private async void VerUsuarios_Loaded(object sender, RoutedEventArgs e)
 		{
+			BuscarPorComboBox.SelectedIndex = 0;
 			await CargarClientesAsync();
 		}
 
@@ -40,15 +46,77 @@ namespace AplicacionClientesyReparaciones.Views
 			{
 				var client = await SupabaseService.GetClientAsync();
 				var response = await client.From<Cliente>().Get();
-				if (this.FindName("ClientesDataGrid") is DataGrid dataGrid)
-				{
-					dataGrid.ItemsSource = response.Models;
-				}
+				_clientes = response.Models;
+				ClientesDataGrid.ItemsSource = _clientes;
+				AplicarFiltroBusqueda();
 			}
 			catch (Exception ex)
 			{
 				MessageBox.Show($"Error al cargar clientes: {ex.Message}", "Supabase", MessageBoxButton.OK, MessageBoxImage.Error);
 			}
+		}
+
+		private void BuscarTextBox_TextChanged(object sender, TextChangedEventArgs e)
+		{
+			AplicarFiltroBusqueda();
+		}
+
+		private void BuscarPorComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+			AplicarFiltroBusqueda();
+		}
+
+		private void AplicarFiltroBusqueda()
+		{
+			if (ClientesDataGrid == null)
+			{
+				return;
+			}
+
+			var termino = BuscarTextBox?.Text?.Trim();
+			if (string.IsNullOrWhiteSpace(termino))
+			{
+				ClientesDataGrid.ItemsSource = _clientes;
+				return;
+			}
+
+			var criterio = (BuscarPorComboBox?.SelectedItem as ComboBoxItem)?.Content?.ToString();
+			IEnumerable<Cliente> filtrados = _clientes;
+			if (string.Equals(criterio, "Movil", StringComparison.OrdinalIgnoreCase))
+			{
+				var terminoNumerico = string.Concat(termino.Where(char.IsDigit));
+				if (string.IsNullOrEmpty(terminoNumerico))
+				{
+					ClientesDataGrid.ItemsSource = Array.Empty<Cliente>();
+					return;
+				}
+
+				filtrados = _clientes.Where(cliente =>
+				{
+					var telefono1 = cliente.Telefono1?.ToString() ?? string.Empty;
+					return CoincideTelefono(telefono1, terminoNumerico);
+				});
+			}
+			else
+			{
+				filtrados = _clientes.Where(cliente =>
+					(cliente.Nombre?.StartsWith(termino, StringComparison.OrdinalIgnoreCase) ?? false) ||
+					(cliente.Apellidos?.StartsWith(termino, StringComparison.OrdinalIgnoreCase) ?? false));
+			}
+
+			ClientesDataGrid.ItemsSource = filtrados.ToList();
+		}
+
+		private static bool CoincideTelefono(string telefono, string termino)
+		{
+			if (string.IsNullOrWhiteSpace(telefono) || string.IsNullOrWhiteSpace(termino))
+			{
+				return false;
+			}
+
+			var telefonoNormalizado = string.Concat(telefono.Where(char.IsDigit));
+			return telefonoNormalizado.Length >= termino.Length &&
+				telefonoNormalizado.StartsWith(termino, StringComparison.Ordinal);
 		}
 
 		private void ClientesDataGrid_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -60,6 +128,7 @@ namespace AplicacionClientesyReparaciones.Views
 					Owner = Application.Current.MainWindow
 				};
 				ventana.ShowDialog();
+				_ = CargarClientesAsync();
 			}
 		}
     }

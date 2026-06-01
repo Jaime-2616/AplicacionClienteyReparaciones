@@ -1,0 +1,106 @@
+﻿using System;
+using System.Windows;
+using System.Windows.Controls;
+using AplicacionClientesyReparaciones.Models;
+using AplicacionClientesyReparaciones;
+
+namespace AplicacionClientesyReparaciones.Views
+{
+	public partial class VerUsuarios : UserControl
+    {
+        private System.Collections.Generic.List<Cliente> _clientes = new();
+
+        public VerUsuarios()
+        {
+            InitializeComponent();
+			Loaded += VerUsuarios_Loaded;
+        }
+		
+		private void NuevoCliente_Click(object sender, RoutedEventArgs e)
+		{
+			var contenido = new AgregarCliente();
+			var ventana = new Window
+			{
+				Title = "Agregar cliente",
+				Content = contenido,
+				SizeToContent = SizeToContent.WidthAndHeight,
+				WindowStartupLocation = WindowStartupLocation.CenterOwner,
+				Owner = Application.Current.MainWindow
+			};
+			ventana.ShowDialog();
+			_ = CargarClientesAsync();
+		}
+
+		private async void VerUsuarios_Loaded(object sender, RoutedEventArgs e)
+		{
+			BuscarPorComboBox.SelectedIndex = 0;
+			await CargarClientesAsync();
+		}
+
+		private async System.Threading.Tasks.Task CargarClientesAsync()
+		{
+			try
+			{
+				var client = await SupabaseService.GetClientAsync();
+				var response = await client.From<Cliente>().Get();
+				_clientes = response.Models;
+				AplicarFiltroBusqueda();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show($"Error al cargar clientes: {ex.Message}", "Supabase", MessageBoxButton.OK, MessageBoxImage.Error);
+			}
+		}
+
+		private void BuscarTextBox_TextChanged(object sender, TextChangedEventArgs e)
+		{
+			AplicarFiltroBusqueda();
+		}
+
+		private void BuscarPorComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+			AplicarFiltroBusqueda();
+		}
+
+		private void AplicarFiltroBusqueda()
+		{
+			if (ClientesDataGrid == null)
+			{
+				return;
+			}
+
+			var termino = BuscarTextBox?.Text?.Trim();
+			if (string.IsNullOrWhiteSpace(termino))
+			{
+				ClientesDataGrid.ItemsSource = _clientes;
+				return;
+			}
+
+			var criterio = (BuscarPorComboBox.SelectedItem as ComboBoxItem)?.Content?.ToString();
+			if (string.Equals(criterio, "Movil", StringComparison.OrdinalIgnoreCase))
+			{
+				ClientesDataGrid.ItemsSource = _clientes.FindAll(cliente =>
+					(cliente.Telefono1?.ToString()?.StartsWith(termino, StringComparison.OrdinalIgnoreCase) ?? false) ||
+					(cliente.Telefono2?.ToString()?.StartsWith(termino, StringComparison.OrdinalIgnoreCase) ?? false));
+				return;
+			}
+
+			ClientesDataGrid.ItemsSource = _clientes.FindAll(cliente =>
+				(cliente.Nombre?.StartsWith(termino, StringComparison.OrdinalIgnoreCase) ?? false) ||
+				(cliente.Apellidos?.StartsWith(termino, StringComparison.OrdinalIgnoreCase) ?? false));
+		}
+
+		private void ClientesDataGrid_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+		{
+			if (sender is DataGrid grid && grid.SelectedItem is Cliente cliente)
+			{
+				var ventana = new DetalleClienteWindow(cliente)
+				{
+					Owner = Application.Current.MainWindow
+				};
+				ventana.ShowDialog();
+				_ = CargarClientesAsync();
+			}
+		}
+    }
+}

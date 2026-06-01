@@ -89,6 +89,7 @@
         </Grid>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,16,0,0">
+            <Button Content="Borrar" Width="110" Margin="0,0,12,0" Background="#DC2626" BorderBrush="#DC2626" Click="Borrar_Click" />
             <Button Content="Guardar" Width="110" Margin="0,0,12,0" Click="Guardar_Click" />
             <Button Content="Cerrar" Width="110" Background="#64748B" BorderBrush="#64748B" IsCancel="True" />
         </StackPanel>

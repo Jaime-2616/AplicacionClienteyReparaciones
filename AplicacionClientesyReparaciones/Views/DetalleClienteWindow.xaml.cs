@@ -47,6 +47,32 @@ namespace AplicacionClientesyReparaciones.Views
                 MessageBox.Show($"Error al actualizar el cliente: {ex.Message}", "Supabase", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private async void Borrar_Click(object sender, RoutedEventArgs e)
+        {
+            var confirmacion = MessageBox.Show(
+                "¿Quieres borrar este cliente?",
+                "Confirmar borrado",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Warning);
+
+            if (confirmacion != MessageBoxResult.Yes)
+            {
+                return;
+            }
+
+            try
+            {
+                var client = await SupabaseService.GetClientAsync();
+                await client.From<Cliente>().Delete(_cliente);
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al borrar el cliente: {ex.Message}", "Supabase", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
         private static bool TryGetTelefono(string value, out long? telefono)
         {
             if (string.IsNullOrWhiteSpace(value))

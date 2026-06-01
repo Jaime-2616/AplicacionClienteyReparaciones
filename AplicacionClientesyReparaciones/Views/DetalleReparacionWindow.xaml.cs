@@ -66,6 +66,31 @@ namespace AplicacionClientesyReparaciones.Views
             }
         }   
 
+        private async void Borrar_Click(object sender, RoutedEventArgs e)
+        {
+            var confirmacion = MessageBox.Show(
+                "¿Quieres borrar esta reparación?",
+                "Confirmar borrado",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Warning);
+
+            if (confirmacion != MessageBoxResult.Yes)
+            {
+                return;
+            }
+
+            try
+            {
+                var client = await SupabaseService.GetClientAsync();
+                await client.From<Reparacion>().Delete(_reparacion);
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al borrar la reparación: {ex.Message}", "Supabase", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
         private void Imprimir_Click(object sender, RoutedEventArgs e)
         {
             var printDialog = new PrintDialog();

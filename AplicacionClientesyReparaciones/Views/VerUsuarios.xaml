@@ -21,6 +21,10 @@
 		</Grid.RowDefinitions>
 
 		<Grid Grid.Row="0" Margin="0,0,0,16">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="*" />
 				<ColumnDefinition Width="Auto" />
@@ -31,6 +35,16 @@
 					Width="140"
 					HorizontalAlignment="Right"
 					Click="NuevoCliente_Click" />
+
+			<StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="0,8,0,0" VerticalAlignment="Center">
+				<TextBlock Text="Buscar:" Margin="0,0,8,0" VerticalAlignment="Center" />
+				<TextBox x:Name="BuscarTextBox" Width="220" Margin="0,0,12,0" TextChanged="BuscarTextBox_TextChanged" />
+				<TextBlock Text="Por:" Margin="0,0,8,0" VerticalAlignment="Center" />
+				<ComboBox x:Name="BuscarPorComboBox" Width="140" SelectionChanged="BuscarPorComboBox_SelectionChanged" SelectedValuePath="Content">
+					<ComboBoxItem Content="Nombre" />
+					<ComboBoxItem Content="Movil" />
+				</ComboBox>
+			</StackPanel>
 		</Grid>
 		<DataGrid Grid.Row="1"
 				  x:Name="ClientesDataGrid"

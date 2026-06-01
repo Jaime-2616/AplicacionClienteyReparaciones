@@ -1,0 +1,70 @@
+﻿<UserControl x:Class="AplicacionClientesyReparaciones.Views.VerUsuarios"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	MinWidth="900"
+	MinHeight="640"
+	Background="#F3F6FB">
+	<UserControl.Resources>
+		<Style TargetType="Button">
+			<Setter Property="Height" Value="34" />
+			<Setter Property="Padding" Value="16,0" />
+			<Setter Property="Background" Value="#2563EB" />
+			<Setter Property="Foreground" Value="White" />
+			<Setter Property="BorderBrush" Value="#2563EB" />
+		</Style>
+	</UserControl.Resources>
+	<Border Margin="20" Background="White" CornerRadius="12" Padding="20" BorderBrush="#E2E8F0" BorderThickness="1">
+		<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+
+		<Grid Grid.Row="0" Margin="0,0,0,16">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="Auto" />
+			</Grid.ColumnDefinitions>
+			<TextBlock Text="Listado de clientes" FontSize="20" FontWeight="Bold" Foreground="#1F2937" VerticalAlignment="Center" />
+			<Button Grid.Column="1"
+					Content="Nuevo cliente"
+					Width="140"
+					HorizontalAlignment="Right"
+					Click="NuevoCliente_Click" />
+
+			<StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="0,8,0,0" VerticalAlignment="Center">
+				<TextBlock Text="Buscar:" Margin="0,0,8,0" VerticalAlignment="Center" />
+				<TextBox x:Name="BuscarTextBox" Width="220" Margin="0,0,12,0" TextChanged="BuscarTextBox_TextChanged" />
+				<TextBlock Text="Por:" Margin="0,0,8,0" VerticalAlignment="Center" />
+				<ComboBox x:Name="BuscarPorComboBox" Width="140" SelectionChanged="BuscarPorComboBox_SelectionChanged">
+					<ComboBoxItem Content="Nombre" />
+					<ComboBoxItem Content="Movil" />
+				</ComboBox>
+			</StackPanel>
+		</Grid>
+		<DataGrid Grid.Row="1"
+				  x:Name="ClientesDataGrid"
+				  AutoGenerateColumns="False"
+				  AlternatingRowBackground="#F8FAFC"
+				  RowBackground="White"
+				  GridLinesVisibility="Horizontal"
+				  BorderBrush="#E2E8F0"
+				  BorderThickness="1"
+				  IsReadOnly="True"
+				  MouseDoubleClick="ClientesDataGrid_MouseDoubleClick">
+			<DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="60" />
+                    <DataGridTextColumn Header="DNI" Binding="{Binding Dni}" Width="*" />
+                    <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="*" />
+                    <DataGridTextColumn Header="Apellidos" Binding="{Binding Apellidos}" Width="*" />
+				<DataGridTextColumn Header="Movil 1" Binding="{Binding Telefono1}" Width="*" />
+				<DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="2*" />
+			</DataGrid.Columns>
+		</DataGrid>
+		</Grid>
+	</Border>
+</UserControl>
